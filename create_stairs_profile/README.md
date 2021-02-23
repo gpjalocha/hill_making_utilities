@@ -2,6 +2,8 @@
 
 Default ```<stairs...``` allows only to create stairs that are having side coverings adjusted to _y_ profile. This scripts creates profile for stairs like this
 ![stairs](stairs.jpg)
+
+
 and outputs example pillar with _step_ and _count_ parameter adjusted to the whole profile. It can be used as a template to create additional stairs elements like support for stairs etc. It needs to have _lz_ and _rz_ adjusted. And you can definie also _ref[rl]?z_.
 
 ## Usage
