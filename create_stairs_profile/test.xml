@@ -1,0 +1,162 @@
+<!--STAIRS PROFILE-->
+
+<profile id="dhill-stairs" refx="dhill">
+	<start x="5.00" y="0.04" refy="dhill-top"/>
+	<line x="5.19" y="0.04" refyx="5.00"  refy="dhill-top"/>
+	<line x="5.20" y="0.04" refy="dhill-top"/>
+	<line x="5.39" y="0.04" refyx="5.20"  refy="dhill-top"/>
+	<line x="5.40" y="0.04" refy="dhill-top"/>
+	<line x="5.59" y="0.04" refyx="5.40"  refy="dhill-top"/>
+	<line x="5.60" y="0.04" refy="dhill-top"/>
+	<line x="5.79" y="0.04" refyx="5.60"  refy="dhill-top"/>
+	<line x="5.80" y="0.04" refy="dhill-top"/>
+	<line x="5.99" y="0.04" refyx="5.80"  refy="dhill-top"/>
+	<line x="6.00" y="0.04" refy="dhill-top"/>
+	<line x="6.19" y="0.04" refyx="6.00"  refy="dhill-top"/>
+	<line x="6.20" y="0.04" refy="dhill-top"/>
+	<line x="6.39" y="0.04" refyx="6.20"  refy="dhill-top"/>
+	<line x="6.40" y="0.04" refy="dhill-top"/>
+	<line x="6.59" y="0.04" refyx="6.40"  refy="dhill-top"/>
+	<line x="6.60" y="0.04" refy="dhill-top"/>
+	<line x="6.79" y="0.04" refyx="6.60"  refy="dhill-top"/>
+	<line x="6.80" y="0.04" refy="dhill-top"/>
+	<line x="6.99" y="0.04" refyx="6.80"  refy="dhill-top"/>
+	<line x="7.00" y="0.04" refy="dhill-top"/>
+	<line x="7.19" y="0.04" refyx="7.00"  refy="dhill-top"/>
+	<line x="7.20" y="0.04" refy="dhill-top"/>
+	<line x="7.39" y="0.04" refyx="7.20"  refy="dhill-top"/>
+	<line x="7.40" y="0.04" refy="dhill-top"/>
+	<line x="7.59" y="0.04" refyx="7.40"  refy="dhill-top"/>
+	<line x="7.60" y="0.04" refy="dhill-top"/>
+	<line x="7.79" y="0.04" refyx="7.60"  refy="dhill-top"/>
+	<line x="7.80" y="0.04" refy="dhill-top"/>
+	<line x="7.99" y="0.04" refyx="7.80"  refy="dhill-top"/>
+	<line x="8.00" y="0.04" refy="dhill-top"/>
+	<line x="8.19" y="0.04" refyx="8.00"  refy="dhill-top"/>
+	<line x="8.20" y="0.04" refy="dhill-top"/>
+	<line x="8.39" y="0.04" refyx="8.20"  refy="dhill-top"/>
+	<line x="8.40" y="0.04" refy="dhill-top"/>
+	<line x="8.59" y="0.04" refyx="8.40"  refy="dhill-top"/>
+	<line x="8.60" y="0.04" refy="dhill-top"/>
+	<line x="8.79" y="0.04" refyx="8.60"  refy="dhill-top"/>
+	<line x="8.80" y="0.04" refy="dhill-top"/>
+	<line x="8.99" y="0.04" refyx="8.80"  refy="dhill-top"/>
+	<line x="9.00" y="0.04" refy="dhill-top"/>
+	<line x="9.19" y="0.04" refyx="9.00"  refy="dhill-top"/>
+	<line x="9.20" y="0.04" refy="dhill-top"/>
+	<line x="9.39" y="0.04" refyx="9.20"  refy="dhill-top"/>
+	<line x="9.40" y="0.04" refy="dhill-top"/>
+	<line x="9.59" y="0.04" refyx="9.40"  refy="dhill-top"/>
+	<line x="9.60" y="0.04" refy="dhill-top"/>
+	<line x="9.79" y="0.04" refyx="9.60"  refy="dhill-top"/>
+	<line x="9.80" y="0.04" refy="dhill-top"/>
+	<line x="9.99" y="0.04" refyx="9.80"  refy="dhill-top"/>
+	<line x="10.00" y="0.04" refy="dhill-top"/>
+	<line x="10.19" y="0.04" refyx="10.00"  refy="dhill-top"/>
+	<line x="10.20" y="0.04" refy="dhill-top"/>
+	<line x="10.39" y="0.04" refyx="10.20"  refy="dhill-top"/>
+	<line x="10.40" y="0.04" refy="dhill-top"/>
+	<line x="10.59" y="0.04" refyx="10.40"  refy="dhill-top"/>
+	<line x="10.60" y="0.04" refy="dhill-top"/>
+	<line x="10.79" y="0.04" refyx="10.60"  refy="dhill-top"/>
+	<line x="10.80" y="0.04" refy="dhill-top"/>
+	<line x="10.99" y="0.04" refyx="10.80"  refy="dhill-top"/>
+	<line x="11.00" y="0.04" refy="dhill-top"/>
+	<line x="11.19" y="0.04" refyx="11.00"  refy="dhill-top"/>
+	<line x="11.20" y="0.04" refy="dhill-top"/>
+	<line x="11.39" y="0.04" refyx="11.20"  refy="dhill-top"/>
+	<line x="11.40" y="0.04" refy="dhill-top"/>
+	<line x="11.59" y="0.04" refyx="11.40"  refy="dhill-top"/>
+	<line x="11.60" y="0.04" refy="dhill-top"/>
+	<line x="11.79" y="0.04" refyx="11.60"  refy="dhill-top"/>
+	<line x="11.80" y="0.04" refy="dhill-top"/>
+	<line x="11.99" y="0.04" refyx="11.80"  refy="dhill-top"/>
+	<line x="12.00" y="0.04" refy="dhill-top"/>
+	<line x="12.19" y="0.04" refyx="12.00"  refy="dhill-top"/>
+	<line x="12.20" y="0.04" refy="dhill-top"/>
+	<line x="12.39" y="0.04" refyx="12.20"  refy="dhill-top"/>
+	<line x="12.40" y="0.04" refy="dhill-top"/>
+	<line x="12.59" y="0.04" refyx="12.40"  refy="dhill-top"/>
+	<line x="12.60" y="0.04" refy="dhill-top"/>
+	<line x="12.79" y="0.04" refyx="12.60"  refy="dhill-top"/>
+	<line x="12.80" y="0.04" refy="dhill-top"/>
+	<line x="12.99" y="0.04" refyx="12.80"  refy="dhill-top"/>
+	<line x="13.00" y="0.04" refy="dhill-top"/>
+	<line x="13.19" y="0.04" refyx="13.00"  refy="dhill-top"/>
+	<line x="13.20" y="0.04" refy="dhill-top"/>
+	<line x="13.39" y="0.04" refyx="13.20"  refy="dhill-top"/>
+	<line x="13.40" y="0.04" refy="dhill-top"/>
+	<line x="13.59" y="0.04" refyx="13.40"  refy="dhill-top"/>
+	<line x="13.60" y="0.04" refy="dhill-top"/>
+	<line x="13.79" y="0.04" refyx="13.60"  refy="dhill-top"/>
+	<line x="13.80" y="0.04" refy="dhill-top"/>
+	<line x="13.99" y="0.04" refyx="13.80"  refy="dhill-top"/>
+	<line x="14.00" y="0.04" refy="dhill-top"/>
+	<line x="14.19" y="0.04" refyx="14.00"  refy="dhill-top"/>
+	<line x="14.20" y="0.04" refy="dhill-top"/>
+	<line x="14.39" y="0.04" refyx="14.20"  refy="dhill-top"/>
+	<line x="14.40" y="0.04" refy="dhill-top"/>
+	<line x="14.59" y="0.04" refyx="14.40"  refy="dhill-top"/>
+	<line x="14.60" y="0.04" refy="dhill-top"/>
+	<line x="14.79" y="0.04" refyx="14.60"  refy="dhill-top"/>
+	<line x="14.80" y="0.04" refy="dhill-top"/>
+	<line x="14.99" y="0.04" refyx="14.80"  refy="dhill-top"/>
+	<line x="15.00" y="0.04" refy="dhill-top"/>
+	<line x="15.19" y="0.04" refyx="15.00"  refy="dhill-top"/>
+	<line x="15.20" y="0.04" refy="dhill-top"/>
+	<line x="15.39" y="0.04" refyx="15.20"  refy="dhill-top"/>
+	<line x="15.40" y="0.04" refy="dhill-top"/>
+	<line x="15.59" y="0.04" refyx="15.40"  refy="dhill-top"/>
+	<line x="15.60" y="0.04" refy="dhill-top"/>
+	<line x="15.79" y="0.04" refyx="15.60"  refy="dhill-top"/>
+	<line x="15.80" y="0.04" refy="dhill-top"/>
+	<line x="15.99" y="0.04" refyx="15.80"  refy="dhill-top"/>
+	<line x="16.00" y="0.04" refy="dhill-top"/>
+	<line x="16.19" y="0.04" refyx="16.00"  refy="dhill-top"/>
+	<line x="16.20" y="0.04" refy="dhill-top"/>
+	<line x="16.39" y="0.04" refyx="16.20"  refy="dhill-top"/>
+	<line x="16.40" y="0.04" refy="dhill-top"/>
+	<line x="16.59" y="0.04" refyx="16.40"  refy="dhill-top"/>
+	<line x="16.60" y="0.04" refy="dhill-top"/>
+	<line x="16.79" y="0.04" refyx="16.60"  refy="dhill-top"/>
+	<line x="16.80" y="0.04" refy="dhill-top"/>
+	<line x="16.99" y="0.04" refyx="16.80"  refy="dhill-top"/>
+	<line x="17.00" y="0.04" refy="dhill-top"/>
+	<line x="17.19" y="0.04" refyx="17.00"  refy="dhill-top"/>
+	<line x="17.20" y="0.04" refy="dhill-top"/>
+	<line x="17.39" y="0.04" refyx="17.20"  refy="dhill-top"/>
+	<line x="17.40" y="0.04" refy="dhill-top"/>
+	<line x="17.59" y="0.04" refyx="17.40"  refy="dhill-top"/>
+	<line x="17.60" y="0.04" refy="dhill-top"/>
+	<line x="17.79" y="0.04" refyx="17.60"  refy="dhill-top"/>
+	<line x="17.80" y="0.04" refy="dhill-top"/>
+	<line x="17.99" y="0.04" refyx="17.80"  refy="dhill-top"/>
+	<line x="18.00" y="0.04" refy="dhill-top"/>
+	<line x="18.19" y="0.04" refyx="18.00"  refy="dhill-top"/>
+	<line x="18.20" y="0.04" refy="dhill-top"/>
+	<line x="18.39" y="0.04" refyx="18.20"  refy="dhill-top"/>
+	<line x="18.40" y="0.04" refy="dhill-top"/>
+	<line x="18.59" y="0.04" refyx="18.40"  refy="dhill-top"/>
+	<line x="18.60" y="0.04" refy="dhill-top"/>
+	<line x="18.79" y="0.04" refyx="18.60"  refy="dhill-top"/>
+	<line x="18.80" y="0.04" refy="dhill-top"/>
+	<line x="18.99" y="0.04" refyx="18.80"  refy="dhill-top"/>
+	<line x="19.00" y="0.04" refy="dhill-top"/>
+	<line x="19.19" y="0.04" refyx="19.00"  refy="dhill-top"/>
+	<line x="19.20" y="0.04" refy="dhill-top"/>
+	<line x="19.39" y="0.04" refyx="19.20"  refy="dhill-top"/>
+	<line x="19.40" y="0.04" refy="dhill-top"/>
+	<line x="19.59" y="0.04" refyx="19.40"  refy="dhill-top"/>
+	<line x="19.60" y="0.04" refy="dhill-top"/>
+	<line x="19.79" y="0.04" refyx="19.60"  refy="dhill-top"/>
+	<line x="19.80" y="0.04" refy="dhill-top"/>
+	<line x="19.99" y="0.04" refyx="19.80"  refy="dhill-top"/>
+	<line x="20.00" y="0.04" refy="dhill-top"/>
+	
+</profile>
+
+<!--EXAMPLE STAIRS-->
+
+<pillar refx="dhill" refy="dhill-stairs"
+	x1="5.000" x2="5.190" ty=".05" lz="1" rz="-1" step="0.200" count="75"
+	t="Textures\grid.png" m="Materials\material1.xml" c="0xcccccc"/>
