@@ -25,6 +25,6 @@ python create_stairs_profile.py \
 --end=20 \
 --step=0.2 \
 --h=.04 \
---offset=.01
+--offset=.01 \
 --output=test_stairs.xml
 ```
