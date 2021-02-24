@@ -8,7 +8,7 @@ This scripts allow you to convert OBJ and MTL exported models from blender to xm
 * To extract colours model must have assigned material(for example principled BSDF) with  base color from which converter extracts HEX
 * If you specify `Textures\<texture_name>.png`or/and `Materials\<material_name>.xml`, then converter extracts those from material name and assigns those to the batch.
 
-## Model trangulation
+## Model triangulation
 Before exporting your model it needs to be triangulated. You can do that in 3 ways:
 
 1. Select *Triangulate Faces* checkbox in export menu under *Geometry* tab:
