@@ -32,7 +32,8 @@ If you create some model from scratch, it's good to check if UV mapping is corre
 * Make sure, that you have your model selected.
 
 ---
-**tip**: If you have multiple objects, you can merge them into one by selecting all of them in object mode, and then press *ctrl+j*
+**tip**
+If you have multiple objects, you can merge them into one by selecting all of them in object mode, and then press *ctrl+j*
 ---
 * File->Export->Wavefront(.obj)
 * Select *Selection only* checkbox and set *Z forward* in transform panel
