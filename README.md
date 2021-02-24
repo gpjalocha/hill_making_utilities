@@ -4,7 +4,7 @@ This repo contains scripts that are helpfull in creating some specific construct
 
 ## Requirements
 
-All of the scripts are written in python 3. For installing python on your OS please follow this [instruction](https://realpython.com/installing-python/)
+All of the scripts are written in python 3. For installing python on your OS please follow this [instruction](https://realpython.com/installing-python/). **While installing on windows, select `add to PATH` option to be able to launch `python` command from cmd**
 
 ### Installing required packages
 
