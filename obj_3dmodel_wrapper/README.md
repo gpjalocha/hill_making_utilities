@@ -1,6 +1,6 @@
 # OBJ to XML _<3dmodel../>_ wrapper
 
-This scripts allow you to convert OBJ and MTL exported models from blender to xml `<3dmodel...>` code. It separates exported model into batches by assigned materials. It also suppors assigning specific textures and materials by specifying those in material names in blender. This script also extracts UV data from OBJ so you can map the texture on your model in blender's UV editor.
+This script allow you to convert OBJ and MTL exported models from blender to xml `<3dmodel...>` code. It separates exported model into batches by assigned materials. It also suppors assigning specific textures and materials by specifying those in material names in blender. This script also extracts UV data from OBJ so you can map the texture on your model in blender's UV editor.
 
 ## Prerequisite
 
