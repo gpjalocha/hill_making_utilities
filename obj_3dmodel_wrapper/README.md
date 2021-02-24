@@ -12,18 +12,18 @@ This scripts allow you to convert OBJ and MTL exported models from blender to xm
 Before exporting your model it needs to be triangulated. You can do that in 3 ways:
 
 1. Select *Triangulate Faces* checkbox in export menu under *Geometry* tab:
-![trian](trian.jpg)
+![trian](pics/trian.jpg)
 
 2. Apply *Decimate* modifier with *triangulate* option. It's the best way if you have model with big vertices count, so you can compress it before exporting to XML
 
 
-![decimate](decimate.jpg)
+![decimate](pics/decimate.jpg)
 
 3. Apply *Triangulate* modifier to your model.
 
 ## Setting up the materials and textures
 You can assign the Texture and Material in material name. If it's not specified correctly(or not specified at all) then it assigns by default `Material\material1.xml` and `Textures\concrete5.png`.
-![material](material.jpg)
+![material](pics/material.jpg)
 
 ## Setting up the UV mapping
 If you create some model from scratch, it's good to check if UV mapping is correct. You can check that in UV editor while being in Edit Mode(Tab) and selecting all the object vertices(a).
@@ -57,4 +57,4 @@ python obj_wrapper_3d.py\
 ```
 
 After executing that command, cube.xml file should appear. Copy the content of this file into your hill xml and it should result with this.
-![res](res.jpg)
+![res](pics/res.jpg)
