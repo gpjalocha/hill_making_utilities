@@ -62,11 +62,11 @@ def read_mtl(path="./models/windmill.mtl"):
     return f
 
 def extract_texture(input_str):
-    if(bool(match(r".*Textures\\.+?\.png",input_str))):
-        parsed_texture=match(r".*(Textures\\.+?\.png)",input_str).group(1)
+    if(bool(match(r".*Textures\\.+?\.(png|jpg)",input_str))):
+        parsed_texture=match(r".*(Textures\\.+?\.(png|jpg))",input_str).group(1)
         return(parsed_texture)
     else:
-        return("Textures\\concrete5.png")
+        return("Textures\\metal.png")
 
 def extract_material(input_str):
     if(bool(match(r".*Materials\\.+?\.xml",input_str))):
@@ -109,7 +109,7 @@ def convert_3d(name,v,f,vt,mtl,scale_uv,invert_faces,model_tag):
                                     vert_vals=[float(vr) for vr in vertex]
                                     vert_vals[2]=-vert_vals[2]
                                     if (Ind,UVind) not in verts_all:
-                                            verts_str+=[('<vertex id="%i" x="%0.4f" y="%0.4f" z="%0.4f" u1="%0.4f" v1="%0.4f" diffuse="0x'+material[1]+'%s"/>\n\t\t') % tuple([INDEX]+vert_vals+[UV[0]/scale_uv,-UV[1]/scale_uv]+[color])]
+                                            verts_str+=[('<vertex id="%i" x="%0.4f" y="%0.4f" z="%0.4f" u1="%0.4f" v1="%0.4f" diffuse="0x%s"/>\n\t\t') % tuple([INDEX]+vert_vals+[UV[0]/scale_uv,-UV[1]/scale_uv]+[color])]
                                             verts_all+=[tuple([Ind,UVind])]
                             if(invert_faces == 0):
                                 faces+=['\n\t\t<face v2="%i" v1="%i" v3="%i"/>' % tuple([allVertsTableId[str(a)+'_'+str(b)] for a,b in zip(vertsInd,uvInd)])]
