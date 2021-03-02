@@ -1,8 +1,13 @@
-# Create stairs profile
+# Create UV sphere
 
 This script allows to create UV sphere using beams instead of space consuming `<3dmodel/>` directive. This script creates UV sphere with the same parameters as used in blender
+
+
 ![uv](pics/uv.jpg)
 
+and results with sphere like this
+
+![dsj](pics/dsj.jpg)
 
 ## Usage
 
