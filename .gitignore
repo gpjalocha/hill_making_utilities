@@ -1,1 +1,6 @@
 env/*
+obj_3dmodel_wrapper/*xml
+obj_3dmodel_wrapper/*txt
+obj_3dmodel_wrapper/*obj
+obj_3dmodel_wrapper/*mtl
+
