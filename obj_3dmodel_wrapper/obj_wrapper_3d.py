@@ -126,7 +126,7 @@ def convert_3d(name,v,f,vt,vn,mtl,scale_uv,invert_faces,model_tag,scale,use_norm
             command+="<batch id=\""+batch_replace+'" texture1="'+texture+'" '+zbias+' material="'+material+'" fvf="322" '+alphatest+' order="0">\n\t\t'
             kl=0
             allVertsUv=[]
-            print("processing texture batch name: %s\nmaterial: %s\ntexture: %s\ncolor=%s\n" %tuple([batch,material,texture,color]))
+            print("processing texture batch name: %s\nmaterial: %s\ntexture: %s\ncolor=%s\n%s\n" %tuple([batch,material,texture,color,zbias]))
             for face_v,face_uv,face_vn in zip(f[batch]['v'],f[batch]['uv'],f[batch]['vn']):
                 allVertsUv+=[str(a-1)+'_'+str(b-1)+('_'+str(c-1) if use_normals=='y' else '') for a,b,c in zip(face_v,face_uv,face_vn)]
             allVertsUv=list(set(allVertsUv))

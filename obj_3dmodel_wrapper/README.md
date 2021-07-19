@@ -24,6 +24,8 @@ Before exporting your model it needs to be triangulated. You can do that in 3 wa
 ## Setting up the materials and textures
 You can assign the Texture and Material in material name. If it's not specified correctly(or not specified at all) then it assigns by default `Material\material1.xml` and `Textures\concrete5.png`.
 ![material](pics/material.jpg)
+### Zbias and alphatest
+Script also reads from material `'zbias=[0-9]'` if specified. Also alphatest is supported, but it's giving a poor results.
 
 ## Setting up the UV mapping
 If you create some model from scratch, it's good to check if UV mapping is correct. You can check that in UV editor while being in Edit Mode(Tab) and selecting all the object vertices(a).
@@ -45,6 +47,8 @@ Script require following arguments:
 * inv_faces- flag which defines if faces should be inverted. If you have model with wrong topology and in DSJ model is fliped(like pillar with lz-rz flipped) then setting this flag to 1 should help
 * scale_uv- scale factor for UV mapping. If you have UV mapping well defined in blender, then it should be 1. For value bigger than 1 texture mapped is bigger, for values smaller than 1 texture is smaller.
 * model_tag- tag for output xml `<3dmodel`. If your hill is in 1.8.0 version, then you should set this value to `model`
+* scale - overvall scale of the model. Everything is scaled with reference to model origin point.
+* use_normals - (y/n) - if 'y'- script uses normals specified in obj which are assigned to every vertex.
 
 Example usage: navigate to this folder and launch command below:
 ```{bash}
