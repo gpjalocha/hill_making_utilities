@@ -16,10 +16,10 @@ for i in range(1,len(sys.argv)):
 
 profile_str=     '<!--STAIRS PROFILE-->\n\n'
 profile_str+=     '<profile id="%s-stairs" refx="%s">\n\t' % tuple([input['refx'],input['refx']])
-profile_str+=    '<start x="%0.2f" y="%0.2f" refy="%s"/>\n\t' % tuple([input['start'],input['h'],input['refy']])
+profile_str+=    '<start x="%0.3f" y="%0.3f" refy="%s"/>\n\t' % tuple([input['start'],input['h'],input['refy']])
 for a in arange(input['start'],input['end'],input['step']):
-	profile_str+='<line x="%0.2f" y="%0.2f" refyx="%0.2f"  refy="%s"/>\n\t' % tuple([a+input['step']-input['offset'],input['h'],a,input['refy']])
-	profile_str+='<line x="%0.2f" y="%0.2f" refy="%s"/>\n\t' % tuple([a+input['step'],input['h'],input['refy']])
+	profile_str+='<line x="%0.3f" y="%0.3f" refyx="%0.3f"  refy="%s"/>\n\t' % tuple([a+input['step']-input['offset'],input['h'],a,input['refy']])
+	profile_str+='<line x="%0.3f" y="%0.3f" refy="%s"/>\n\t' % tuple([a+input['step'],input['h'],input['refy']])
 
 profile_str+='\n</profile>'
 
