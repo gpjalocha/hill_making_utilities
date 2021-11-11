@@ -1,0 +1,1806 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:saxon="http://saxon.sf.net/" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xerces="http://xerces.apache.org" elementFormDefault="qualified">
+  <!-- types -->
+<xs:simpleType name="positiveDecimals">
+    <xs:restriction base="xs:float">
+        <xs:minExclusive value="0"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="nonNegativeDecimals">
+    <xs:restriction base="xs:float">
+        <xs:minInclusive value="0"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="cameraType">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="judge"/>
+    <xs:enumeration value="audience"/>
+    <xs:enumeration value="startgate"/>
+    <xs:enumeration value="takeoff"/>
+  </xs:restriction>
+</xs:simpleType>
+<!-- <xs:simpleType name="positiveDecimals">
+    <xs:restriction base="xs:float">
+        <xs:minExclusive value="0"/>
+    </xs:restriction>
+</xs:simpleType> -->
+
+  <xs:complexType name="inrun-profile">
+    <xs:attribute name="e" type="xs:float"/>
+    <xs:attribute name="es" type="xs:float"/>
+    <xs:attribute name="t" type="xs:float"/>
+    <xs:attribute name="gamma" type="xs:float"/>
+    <xs:attribute name="alpha" type="xs:float"/>
+    <xs:attribute name="r1" type="xs:float"/>
+    <xs:attribute name="s" type="xs:float"/>
+    <xs:attribute name="b1" type="xs:float"/>
+    <xs:attribute name="z0" type="xs:float"/>
+    <xs:attribute name="l" type="xs:float"/>
+    <xs:attribute name="f" type="xs:float"/>
+  </xs:complexType>
+  <xs:complexType name="dhill-profile">
+    <xs:attribute name="alpha" type="xs:float"/>
+    <xs:attribute name="h" type="xs:float"/>
+    <xs:attribute name="n" type="xs:float"/>
+    <xs:attribute name="l1" type="xs:float"/>
+    <xs:attribute name="l2" type="xs:float"/>
+    <xs:attribute name="a" type="xs:float"/>
+    <xs:attribute name="beta-p" type="xs:float"/>
+    <xs:attribute name="beta" type="xs:float"/>
+    <xs:attribute name="beta-l" type="xs:float"/>
+    <xs:attribute name="rl" type="xs:float"/>
+    <xs:attribute name="r2" type="xs:float"/>
+    <xs:attribute name="r2x" type="xs:float"/>
+    <xs:attribute name="r2y" type="xs:float"/>
+    <xs:attribute name="b0" type="xs:float"/>
+    <xs:attribute name="bk" type="xs:float"/>
+    <xs:attribute name="ba" type="xs:float"/>
+    <xs:attribute name="hr" type="xs:float"/>
+    <xs:attribute name="nr" type="xs:float"/>
+    <xs:attribute name="ar" type="xs:float"/>
+    <xs:attribute name="k" type="xs:integer"/>
+    <xs:attribute name="hs" type="xs:integer"/>
+    <xs:attribute name="x0" type="xs:float"/>
+  </xs:complexType>
+  <xs:simpleType name="textureType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Textures\back.png"/>
+      <xs:enumeration value="Textures\banner.jpg"/>
+      <xs:enumeration value="Textures\bannerback.png"/>
+      <xs:enumeration value="Textures\bannerleft.png"/>
+      <xs:enumeration value="Textures\bannermid.png"/>
+      <xs:enumeration value="Textures\bannerright.png"/>
+      <xs:enumeration value="Textures\bannersupport.png"/>
+      <xs:enumeration value="Textures\bib-0.png"/>
+      <xs:enumeration value="Textures\bib-0a.png"/>
+      <xs:enumeration value="Textures\bib-0b.png"/>
+      <xs:enumeration value="Textures\bib-1.png"/>
+      <xs:enumeration value="Textures\bib-1a.png"/>
+      <xs:enumeration value="Textures\bib-1b.png"/>
+      <xs:enumeration value="Textures\bib-2.png"/>
+      <xs:enumeration value="Textures\bib-2a.png"/>
+      <xs:enumeration value="Textures\bib-2b.png"/>
+      <xs:enumeration value="Textures\bib-3.png"/>
+      <xs:enumeration value="Textures\bib-3a.png"/>
+      <xs:enumeration value="Textures\bib-3b.png"/>
+      <xs:enumeration value="Textures\bib-4.png"/>
+      <xs:enumeration value="Textures\bib-4a.png"/>
+      <xs:enumeration value="Textures\bib-4b.png"/>
+      <xs:enumeration value="Textures\bib-5.png"/>
+      <xs:enumeration value="Textures\bib-5a.png"/>
+      <xs:enumeration value="Textures\bib-5b.png"/>
+      <xs:enumeration value="Textures\bib-6.png"/>
+      <xs:enumeration value="Textures\bib-6a.png"/>
+      <xs:enumeration value="Textures\bib-6b.png"/>
+      <xs:enumeration value="Textures\bib-7.png"/>
+      <xs:enumeration value="Textures\bib-7a.png"/>
+      <xs:enumeration value="Textures\bib-7b.png"/>
+      <xs:enumeration value="Textures\bib-8.png"/>
+      <xs:enumeration value="Textures\bib-8a.png"/>
+      <xs:enumeration value="Textures\bib-8b.png"/>
+      <xs:enumeration value="Textures\bib-9.png"/>
+      <xs:enumeration value="Textures\bib-9a.png"/>
+      <xs:enumeration value="Textures\bib-9b.png"/>
+      <xs:enumeration value="Textures\bib-blank.png"/>
+      <xs:enumeration value="Textures\bib-v.png"/>
+      <xs:enumeration value="Textures\binding-connector.png"/>
+      <xs:enumeration value="Textures\binding-pin.png"/>
+      <xs:enumeration value="Textures\binding-pin2.png"/>
+      <xs:enumeration value="Textures\carpet.png"/>
+      <xs:enumeration value="Textures\chest.png"/>
+      <xs:enumeration value="Textures\clouds.png"/>
+      <xs:enumeration value="Textures\clouds1.png"/>
+      <xs:enumeration value="Textures\clouds2.png"/>
+      <xs:enumeration value="Textures\clouds3.png"/>
+      <xs:enumeration value="Textures\collar.png"/>
+      <xs:enumeration value="Textures\concrete-lillehammer.png"/>
+      <xs:enumeration value="Textures\concrete1.png"/>
+      <xs:enumeration value="Textures\concrete2.png"/>
+      <xs:enumeration value="Textures\concrete3.png"/>
+      <xs:enumeration value="Textures\concrete4.png"/>
+      <xs:enumeration value="Textures\concrete5.png"/>
+      <xs:enumeration value="Textures\concrete6.png"/>
+      <xs:enumeration value="Textures\corrugated.png"/>
+      <xs:enumeration value="Textures\corrugatedb.png"/>
+      <xs:enumeration value="Textures\dist-0.png"/>
+      <xs:enumeration value="Textures\dist-1.png"/>
+      <xs:enumeration value="Textures\dist-2.png"/>
+      <xs:enumeration value="Textures\dist-3.png"/>
+      <xs:enumeration value="Textures\dist-4.png"/>
+      <xs:enumeration value="Textures\dist-5.png"/>
+      <xs:enumeration value="Textures\dist-6.png"/>
+      <xs:enumeration value="Textures\dist-7.png"/>
+      <xs:enumeration value="Textures\dist-8.png"/>
+      <xs:enumeration value="Textures\dist-9.png"/>
+      <xs:enumeration value="Textures\dist-blank.png"/>
+      <xs:enumeration value="Textures\distance-generic.png"/>
+      <xs:enumeration value="Textures\distance-snow.png"/>
+      <xs:enumeration value="Textures\distance-winter.png"/>
+      <xs:enumeration value="Textures\face.png"/>
+      <xs:enumeration value="Textures\fbanner-logo.png"/>
+      <xs:enumeration value="Textures\fbanner.png"/>
+      <xs:enumeration value="Textures\fenceback.png"/>
+      <xs:enumeration value="Textures\flag-afg.png"/>
+      <xs:enumeration value="Textures\flag-alb.png"/>
+      <xs:enumeration value="Textures\flag-alg.png"/>
+      <xs:enumeration value="Textures\flag-and.png"/>
+      <xs:enumeration value="Textures\flag-ang.png"/>
+      <xs:enumeration value="Textures\flag-ant.png"/>
+      <xs:enumeration value="Textures\flag-arg.png"/>
+      <xs:enumeration value="Textures\flag-arm.png"/>
+      <xs:enumeration value="Textures\flag-aus.png"/>
+      <xs:enumeration value="Textures\flag-aut.png"/>
+      <xs:enumeration value="Textures\flag-aze.png"/>
+      <xs:enumeration value="Textures\flag-bah.png"/>
+      <xs:enumeration value="Textures\flag-ban.png"/>
+      <xs:enumeration value="Textures\flag-bar.png"/>
+      <xs:enumeration value="Textures\flag-bdi.png"/>
+      <xs:enumeration value="Textures\flag-bel.png"/>
+      <xs:enumeration value="Textures\flag-ben.png"/>
+      <xs:enumeration value="Textures\flag-bhu.png"/>
+      <xs:enumeration value="Textures\flag-bih.png"/>
+      <xs:enumeration value="Textures\flag-biz.png"/>
+      <xs:enumeration value="Textures\flag-bkf.png"/>
+      <xs:enumeration value="Textures\flag-blr.png"/>
+      <xs:enumeration value="Textures\flag-bol.png"/>
+      <xs:enumeration value="Textures\flag-bot.png"/>
+      <xs:enumeration value="Textures\flag-bra.png"/>
+      <xs:enumeration value="Textures\flag-brn.png"/>
+      <xs:enumeration value="Textures\flag-bru.png"/>
+      <xs:enumeration value="Textures\flag-bul.png"/>
+      <xs:enumeration value="Textures\flag-caf.png"/>
+      <xs:enumeration value="Textures\flag-cam.png"/>
+      <xs:enumeration value="Textures\flag-can.png"/>
+      <xs:enumeration value="Textures\flag-cgo.png"/>
+      <xs:enumeration value="Textures\flag-cha.png"/>
+      <xs:enumeration value="Textures\flag-chi.png"/>
+      <xs:enumeration value="Textures\flag-chn.png"/>
+      <xs:enumeration value="Textures\flag-civ.png"/>
+      <xs:enumeration value="Textures\flag-cmr.png"/>
+      <xs:enumeration value="Textures\flag-cod.png"/>
+      <xs:enumeration value="Textures\flag-col.png"/>
+      <xs:enumeration value="Textures\flag-com.png"/>
+      <xs:enumeration value="Textures\flag-cpv.png"/>
+      <xs:enumeration value="Textures\flag-crc.png"/>
+      <xs:enumeration value="Textures\flag-cro.png"/>
+      <xs:enumeration value="Textures\flag-cub.png"/>
+      <xs:enumeration value="Textures\flag-cyp.png"/>
+      <xs:enumeration value="Textures\flag-cze.png"/>
+      <xs:enumeration value="Textures\flag-den.png"/>
+      <xs:enumeration value="Textures\flag-dji.png"/>
+      <xs:enumeration value="Textures\flag-dma.png"/>
+      <xs:enumeration value="Textures\flag-dom.png"/>
+      <xs:enumeration value="Textures\flag-ecu.png"/>
+      <xs:enumeration value="Textures\flag-egy.png"/>
+      <xs:enumeration value="Textures\flag-eri.png"/>
+      <xs:enumeration value="Textures\flag-esa.png"/>
+      <xs:enumeration value="Textures\flag-esp.png"/>
+      <xs:enumeration value="Textures\flag-est.png"/>
+      <xs:enumeration value="Textures\flag-eth.png"/>
+      <xs:enumeration value="Textures\flag-fij.png"/>
+      <xs:enumeration value="Textures\flag-fin.png"/>
+      <xs:enumeration value="Textures\flag-fra.png"/>
+      <xs:enumeration value="Textures\flag-fsm.png"/>
+      <xs:enumeration value="Textures\flag-gab.png"/>
+      <xs:enumeration value="Textures\flag-gam.png"/>
+      <xs:enumeration value="Textures\flag-gbr.png"/>
+      <xs:enumeration value="Textures\flag-gbs.png"/>
+      <xs:enumeration value="Textures\flag-geo.png"/>
+      <xs:enumeration value="Textures\flag-geq.png"/>
+      <xs:enumeration value="Textures\flag-ger.png"/>
+      <xs:enumeration value="Textures\flag-gha.png"/>
+      <xs:enumeration value="Textures\flag-gre.png"/>
+      <xs:enumeration value="Textures\flag-grn.png"/>
+      <xs:enumeration value="Textures\flag-gua.png"/>
+      <xs:enumeration value="Textures\flag-gui.png"/>
+      <xs:enumeration value="Textures\flag-guy.png"/>
+      <xs:enumeration value="Textures\flag-hai.png"/>
+      <xs:enumeration value="Textures\flag-hon.png"/>
+      <xs:enumeration value="Textures\flag-hun.png"/>
+      <xs:enumeration value="Textures\flag-ina.png"/>
+      <xs:enumeration value="Textures\flag-ind.png"/>
+      <xs:enumeration value="Textures\flag-irl.png"/>
+      <xs:enumeration value="Textures\flag-irn.png"/>
+      <xs:enumeration value="Textures\flag-irq.png"/>
+      <xs:enumeration value="Textures\flag-isl.png"/>
+      <xs:enumeration value="Textures\flag-isr.png"/>
+      <xs:enumeration value="Textures\flag-ita.png"/>
+      <xs:enumeration value="Textures\flag-jam.png"/>
+      <xs:enumeration value="Textures\flag-jor.png"/>
+      <xs:enumeration value="Textures\flag-jpn.png"/>
+      <xs:enumeration value="Textures\flag-kaz.png"/>
+      <xs:enumeration value="Textures\flag-ken.png"/>
+      <xs:enumeration value="Textures\flag-kgz.png"/>
+      <xs:enumeration value="Textures\flag-kir.png"/>
+      <xs:enumeration value="Textures\flag-kor.png"/>
+      <xs:enumeration value="Textures\flag-ksa.png"/>
+      <xs:enumeration value="Textures\flag-kuw.png"/>
+      <xs:enumeration value="Textures\flag-lao.png"/>
+      <xs:enumeration value="Textures\flag-lat.png"/>
+      <xs:enumeration value="Textures\flag-lba.png"/>
+      <xs:enumeration value="Textures\flag-lbr.png"/>
+      <xs:enumeration value="Textures\flag-lca.png"/>
+      <xs:enumeration value="Textures\flag-les.png"/>
+      <xs:enumeration value="Textures\flag-lib.png"/>
+      <xs:enumeration value="Textures\flag-lie.png"/>
+      <xs:enumeration value="Textures\flag-ltu.png"/>
+      <xs:enumeration value="Textures\flag-lux.png"/>
+      <xs:enumeration value="Textures\flag-mad.png"/>
+      <xs:enumeration value="Textures\flag-mar.png"/>
+      <xs:enumeration value="Textures\flag-mas.png"/>
+      <xs:enumeration value="Textures\flag-maw.png"/>
+      <xs:enumeration value="Textures\flag-mda.png"/>
+      <xs:enumeration value="Textures\flag-mdv.png"/>
+      <xs:enumeration value="Textures\flag-mex.png"/>
+      <xs:enumeration value="Textures\flag-mgl.png"/>
+      <xs:enumeration value="Textures\flag-mkd.png"/>
+      <xs:enumeration value="Textures\flag-mli.png"/>
+      <xs:enumeration value="Textures\flag-mlt.png"/>
+      <xs:enumeration value="Textures\flag-mne.png"/>
+      <xs:enumeration value="Textures\flag-mon.png"/>
+      <xs:enumeration value="Textures\flag-moz.png"/>
+      <xs:enumeration value="Textures\flag-mri.png"/>
+      <xs:enumeration value="Textures\flag-msh.png"/>
+      <xs:enumeration value="Textures\flag-mtn.png"/>
+      <xs:enumeration value="Textures\flag-mya.png"/>
+      <xs:enumeration value="Textures\flag-nam.png"/>
+      <xs:enumeration value="Textures\flag-nca.png"/>
+      <xs:enumeration value="Textures\flag-ned.png"/>
+      <xs:enumeration value="Textures\flag-nep.png"/>
+      <xs:enumeration value="Textures\flag-nep2.png"/>
+      <xs:enumeration value="Textures\flag-ngr.png"/>
+      <xs:enumeration value="Textures\flag-nig.png"/>
+      <xs:enumeration value="Textures\flag-nor.png"/>
+      <xs:enumeration value="Textures\flag-nru.png"/>
+      <xs:enumeration value="Textures\flag-nzl.png"/>
+      <xs:enumeration value="Textures\flag-oma.png"/>
+      <xs:enumeration value="Textures\flag-pak.png"/>
+      <xs:enumeration value="Textures\flag-pan.png"/>
+      <xs:enumeration value="Textures\flag-par.png"/>
+      <xs:enumeration value="Textures\flag-per.png"/>
+      <xs:enumeration value="Textures\flag-phi.png"/>
+      <xs:enumeration value="Textures\flag-ple.png"/>
+      <xs:enumeration value="Textures\flag-plw.png"/>
+      <xs:enumeration value="Textures\flag-png.png"/>
+      <xs:enumeration value="Textures\flag-pol.png"/>
+      <xs:enumeration value="Textures\flag-por.png"/>
+      <xs:enumeration value="Textures\flag-prk.png"/>
+      <xs:enumeration value="Textures\flag-qat.png"/>
+      <xs:enumeration value="Textures\flag-rou.png"/>
+      <xs:enumeration value="Textures\flag-rsa.png"/>
+      <xs:enumeration value="Textures\flag-rus.png"/>
+      <xs:enumeration value="Textures\flag-rwa.png"/>
+      <xs:enumeration value="Textures\flag-sam.png"/>
+      <xs:enumeration value="Textures\flag-sen.png"/>
+      <xs:enumeration value="Textures\flag-sey.png"/>
+      <xs:enumeration value="Textures\flag-sin.png"/>
+      <xs:enumeration value="Textures\flag-skn.png"/>
+      <xs:enumeration value="Textures\flag-sle.png"/>
+      <xs:enumeration value="Textures\flag-slo.png"/>
+      <xs:enumeration value="Textures\flag-smr.png"/>
+      <xs:enumeration value="Textures\flag-sol.png"/>
+      <xs:enumeration value="Textures\flag-som.png"/>
+      <xs:enumeration value="Textures\flag-srb.png"/>
+      <xs:enumeration value="Textures\flag-sri.png"/>
+      <xs:enumeration value="Textures\flag-ssd.png"/>
+      <xs:enumeration value="Textures\flag-stp.png"/>
+      <xs:enumeration value="Textures\flag-sud.png"/>
+      <xs:enumeration value="Textures\flag-sui.png"/>
+      <xs:enumeration value="Textures\flag-sui2.png"/>
+      <xs:enumeration value="Textures\flag-sur.png"/>
+      <xs:enumeration value="Textures\flag-svk.png"/>
+      <xs:enumeration value="Textures\flag-swe.png"/>
+      <xs:enumeration value="Textures\flag-swz.png"/>
+      <xs:enumeration value="Textures\flag-syr.png"/>
+      <xs:enumeration value="Textures\flag-tan.png"/>
+      <xs:enumeration value="Textures\flag-tha.png"/>
+      <xs:enumeration value="Textures\flag-tjk.png"/>
+      <xs:enumeration value="Textures\flag-tkm.png"/>
+      <xs:enumeration value="Textures\flag-tls.png"/>
+      <xs:enumeration value="Textures\flag-tog.png"/>
+      <xs:enumeration value="Textures\flag-ton.png"/>
+      <xs:enumeration value="Textures\flag-tpe.png"/>
+      <xs:enumeration value="Textures\flag-tri.png"/>
+      <xs:enumeration value="Textures\flag-tun.png"/>
+      <xs:enumeration value="Textures\flag-tur.png"/>
+      <xs:enumeration value="Textures\flag-tuv.png"/>
+      <xs:enumeration value="Textures\flag-uae.png"/>
+      <xs:enumeration value="Textures\flag-uga.png"/>
+      <xs:enumeration value="Textures\flag-ukr.png"/>
+      <xs:enumeration value="Textures\flag-uru.png"/>
+      <xs:enumeration value="Textures\flag-usa.png"/>
+      <xs:enumeration value="Textures\flag-uzb.png"/>
+      <xs:enumeration value="Textures\flag-van.png"/>
+      <xs:enumeration value="Textures\flag-vat.png"/>
+      <xs:enumeration value="Textures\flag-ven.png"/>
+      <xs:enumeration value="Textures\flag-vie.png"/>
+      <xs:enumeration value="Textures\flag-vin.png"/>
+      <xs:enumeration value="Textures\flag-yem.png"/>
+      <xs:enumeration value="Textures\flag-zam.png"/>
+      <xs:enumeration value="Textures\flag-zim.png"/>
+      <xs:enumeration value="Textures\gate-0.png"/>
+      <xs:enumeration value="Textures\gate-1.png"/>
+      <xs:enumeration value="Textures\gate-2.png"/>
+      <xs:enumeration value="Textures\gate-3.png"/>
+      <xs:enumeration value="Textures\gate-4.png"/>
+      <xs:enumeration value="Textures\gate-5.png"/>
+      <xs:enumeration value="Textures\gate-6.png"/>
+      <xs:enumeration value="Textures\gate-7.png"/>
+      <xs:enumeration value="Textures\gate-8.png"/>
+      <xs:enumeration value="Textures\gate-9.png"/>
+      <xs:enumeration value="Textures\gate-bg.png"/>
+      <xs:enumeration value="Textures\gloves.png"/>
+      <xs:enumeration value="Textures\goggles.png"/>
+      <xs:enumeration value="Textures\grass.png"/>
+      <xs:enumeration value="Textures\grating1.png"/>
+      <xs:enumeration value="Textures\grating2.png"/>
+      <xs:enumeration value="Textures\grating3.png"/>
+      <xs:enumeration value="Textures\grid.png"/>
+      <xs:enumeration value="Textures\grid2.png"/>
+      <xs:enumeration value="Textures\helmet.png"/>
+      <xs:enumeration value="Textures\horizontal-wires.png"/>
+      <xs:enumeration value="Textures\horizontal-wires2.png"/>
+      <xs:enumeration value="Textures\inrun-light-off.png"/>
+      <xs:enumeration value="Textures\inrun-light-on.png"/>
+      <xs:enumeration value="Textures\judge-summer.png"/>
+      <xs:enumeration value="Textures\judge-winter.png"/>
+      <xs:enumeration value="Textures\lightmap-soft.png"/>
+      <xs:enumeration value="Textures\lightmap.png"/>
+      <xs:enumeration value="Textures\mediamond.png"/>
+      <xs:enumeration value="Textures\metal-grid.png"/>
+      <xs:enumeration value="Textures\metal.png"/>
+      <xs:enumeration value="Textures\moon1.png"/>
+      <xs:enumeration value="Textures\moon10.png"/>
+      <xs:enumeration value="Textures\moon2.png"/>
+      <xs:enumeration value="Textures\moon3.png"/>
+      <xs:enumeration value="Textures\moon4.png"/>
+      <xs:enumeration value="Textures\moon5.png"/>
+      <xs:enumeration value="Textures\moon6.png"/>
+      <xs:enumeration value="Textures\moon7.png"/>
+      <xs:enumeration value="Textures\moon8.png"/>
+      <xs:enumeration value="Textures\moon9.png"/>
+      <xs:enumeration value="Textures\net.png"/>
+      <xs:enumeration value="Textures\no-flag.png"/>
+      <xs:enumeration value="Textures\pants-dot.png"/>
+      <xs:enumeration value="Textures\pants.png"/>
+      <xs:enumeration value="Textures\plastic.png"/>
+      <xs:enumeration value="Textures\plate1.png"/>
+      <xs:enumeration value="Textures\plate2.png"/>
+      <xs:enumeration value="Textures\precipitation.png"/>
+      <xs:enumeration value="Textures\railing-glass-cut.png"/>
+      <xs:enumeration value="Textures\railing-glass.png"/>
+      <xs:enumeration value="Textures\rock.png"/>
+      <xs:enumeration value="Textures\rubbermat.png"/>
+      <xs:enumeration value="Textures\rust1.png"/>
+      <xs:enumeration value="Textures\shine.png"/>
+      <xs:enumeration value="Textures\shoes.png"/>
+      <xs:enumeration value="Textures\shoulder.png"/>
+      <xs:enumeration value="Textures\ski-logo.png"/>
+      <xs:enumeration value="Textures\skibottom.png"/>
+      <xs:enumeration value="Textures\skitop.png"/>
+      <xs:enumeration value="Textures\sleeves.png"/>
+      <xs:enumeration value="Textures\snow.png"/>
+      <xs:enumeration value="Textures\spectator-body-1.png"/>
+      <xs:enumeration value="Textures\spectator-body-10.png"/>
+      <xs:enumeration value="Textures\spectator-body-11.png"/>
+      <xs:enumeration value="Textures\spectator-body-12.png"/>
+      <xs:enumeration value="Textures\spectator-body-13.png"/>
+      <xs:enumeration value="Textures\spectator-body-14.png"/>
+      <xs:enumeration value="Textures\spectator-body-15.png"/>
+      <xs:enumeration value="Textures\spectator-body-16.png"/>
+      <xs:enumeration value="Textures\spectator-body-17.png"/>
+      <xs:enumeration value="Textures\spectator-body-18.png"/>
+      <xs:enumeration value="Textures\spectator-body-19.png"/>
+      <xs:enumeration value="Textures\spectator-body-2.png"/>
+      <xs:enumeration value="Textures\spectator-body-20.png"/>
+      <xs:enumeration value="Textures\spectator-body-21.png"/>
+      <xs:enumeration value="Textures\spectator-body-22.png"/>
+      <xs:enumeration value="Textures\spectator-body-23.png"/>
+      <xs:enumeration value="Textures\spectator-body-24.png"/>
+      <xs:enumeration value="Textures\spectator-body-25.png"/>
+      <xs:enumeration value="Textures\spectator-body-26.png"/>
+      <xs:enumeration value="Textures\spectator-body-27.png"/>
+      <xs:enumeration value="Textures\spectator-body-28.png"/>
+      <xs:enumeration value="Textures\spectator-body-29.png"/>
+      <xs:enumeration value="Textures\spectator-body-3.png"/>
+      <xs:enumeration value="Textures\spectator-body-30.png"/>
+      <xs:enumeration value="Textures\spectator-body-31.png"/>
+      <xs:enumeration value="Textures\spectator-body-32.png"/>
+      <xs:enumeration value="Textures\spectator-body-33.png"/>
+      <xs:enumeration value="Textures\spectator-body-34.png"/>
+      <xs:enumeration value="Textures\spectator-body-35.png"/>
+      <xs:enumeration value="Textures\spectator-body-36.png"/>
+      <xs:enumeration value="Textures\spectator-body-4.png"/>
+      <xs:enumeration value="Textures\spectator-body-5.png"/>
+      <xs:enumeration value="Textures\spectator-body-6.png"/>
+      <xs:enumeration value="Textures\spectator-body-7.png"/>
+      <xs:enumeration value="Textures\spectator-body-8.png"/>
+      <xs:enumeration value="Textures\spectator-body-9.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-1.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-10.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-11.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-12.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-13.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-14.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-15.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-16.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-17.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-18.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-19.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-2.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-20.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-21.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-22.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-23.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-24.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-25.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-26.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-27.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-28.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-29.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-3.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-30.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-31.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-32.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-33.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-34.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-35.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-36.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-4.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-5.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-6.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-7.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-8.png"/>
+      <xs:enumeration value="Textures\spectator-bottom-9.png"/>
+      <xs:enumeration value="Textures\spectator-top-1.png"/>
+      <xs:enumeration value="Textures\spectator-top-10.png"/>
+      <xs:enumeration value="Textures\spectator-top-11.png"/>
+      <xs:enumeration value="Textures\spectator-top-12.png"/>
+      <xs:enumeration value="Textures\spectator-top-13.png"/>
+      <xs:enumeration value="Textures\spectator-top-14.png"/>
+      <xs:enumeration value="Textures\spectator-top-15.png"/>
+      <xs:enumeration value="Textures\spectator-top-16.png"/>
+      <xs:enumeration value="Textures\spectator-top-17.png"/>
+      <xs:enumeration value="Textures\spectator-top-18.png"/>
+      <xs:enumeration value="Textures\spectator-top-19.png"/>
+      <xs:enumeration value="Textures\spectator-top-2.png"/>
+      <xs:enumeration value="Textures\spectator-top-20.png"/>
+      <xs:enumeration value="Textures\spectator-top-21.png"/>
+      <xs:enumeration value="Textures\spectator-top-22.png"/>
+      <xs:enumeration value="Textures\spectator-top-23.png"/>
+      <xs:enumeration value="Textures\spectator-top-24.png"/>
+      <xs:enumeration value="Textures\spectator-top-25.png"/>
+      <xs:enumeration value="Textures\spectator-top-26.png"/>
+      <xs:enumeration value="Textures\spectator-top-27.png"/>
+      <xs:enumeration value="Textures\spectator-top-28.png"/>
+      <xs:enumeration value="Textures\spectator-top-29.png"/>
+      <xs:enumeration value="Textures\spectator-top-3.png"/>
+      <xs:enumeration value="Textures\spectator-top-30.png"/>
+      <xs:enumeration value="Textures\spectator-top-31.png"/>
+      <xs:enumeration value="Textures\spectator-top-32.png"/>
+      <xs:enumeration value="Textures\spectator-top-33.png"/>
+      <xs:enumeration value="Textures\spectator-top-34.png"/>
+      <xs:enumeration value="Textures\spectator-top-35.png"/>
+      <xs:enumeration value="Textures\spectator-top-36.png"/>
+      <xs:enumeration value="Textures\spectator-top-4.png"/>
+      <xs:enumeration value="Textures\spectator-top-5.png"/>
+      <xs:enumeration value="Textures\spectator-top-6.png"/>
+      <xs:enumeration value="Textures\spectator-top-7.png"/>
+      <xs:enumeration value="Textures\spectator-top-8.png"/>
+      <xs:enumeration value="Textures\spectator-top-9.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-1.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-10.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-11.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-12.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-13.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-14.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-15.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-16.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-17.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-18.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-19.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-2.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-20.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-21.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-22.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-23.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-24.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-25.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-26.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-27.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-28.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-29.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-3.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-30.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-31.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-32.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-33.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-34.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-35.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-36.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-4.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-5.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-6.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-7.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-8.png"/>
+      <xs:enumeration value="Textures\spectator-winter-body-9.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-1.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-10.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-11.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-12.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-13.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-14.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-15.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-16.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-17.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-18.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-19.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-2.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-20.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-21.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-22.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-23.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-24.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-25.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-26.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-27.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-28.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-29.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-3.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-30.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-31.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-32.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-33.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-34.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-35.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-36.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-4.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-5.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-6.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-7.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-8.png"/>
+      <xs:enumeration value="Textures\spectator-winter-bottom-9.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-1.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-10.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-11.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-12.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-13.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-14.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-15.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-16.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-17.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-18.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-19.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-2.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-20.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-21.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-22.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-23.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-24.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-25.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-26.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-27.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-28.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-29.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-3.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-30.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-31.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-32.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-33.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-34.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-35.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-36.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-4.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-5.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-6.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-7.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-8.png"/>
+      <xs:enumeration value="Textures\spectator-winter-top-9.png"/>
+      <xs:enumeration value="Textures\splash.png"/>
+      <xs:enumeration value="Textures\stadium-light-shine.png"/>
+      <xs:enumeration value="Textures\stadium-light.png"/>
+      <xs:enumeration value="Textures\stone1.jpg"/>
+      <xs:enumeration value="Textures\sun.png"/>
+      <xs:enumeration value="Textures\tiles1.png"/>
+      <xs:enumeration value="Textures\tiles2.png"/>
+      <xs:enumeration value="Textures\tiles3.png"/>
+      <xs:enumeration value="Textures\track-ceramic.png"/>
+      <xs:enumeration value="Textures\track-summer.png"/>
+      <xs:enumeration value="Textures\track-winter.png"/>
+      <xs:enumeration value="Textures\trail.png"/>
+      <xs:enumeration value="Textures\tree-summer-a.png"/>
+      <xs:enumeration value="Textures\tree-summer-b.png"/>
+      <xs:enumeration value="Textures\tree-winter-a.png"/>
+      <xs:enumeration value="Textures\tree-winter-b.png"/>
+      <xs:enumeration value="Textures\vertical-wires.png"/>
+      <xs:enumeration value="Textures\vest.png"/>
+      <xs:enumeration value="Textures\windflag.png"/>
+      <xs:enumeration value="Textures\windmeter.png"/>
+      <xs:enumeration value="Textures\window.png"/>
+      <xs:enumeration value="Textures\windows.png"/>
+      <xs:enumeration value="Textures\wood1.png"/>
+      <xs:enumeration value="Textures\wood1b.png"/>
+      <xs:enumeration value="Textures\wood2.png"/>
+      <xs:enumeration value="Textures\wood2b.png"/>
+      <xs:enumeration value="Textures\wood3.png"/>
+      <xs:enumeration value="Textures\wood3b.png"/>
+      <xs:enumeration value="Textures\wood4.png"/>
+      <xs:enumeration value="Textures\wood4b.png"/>
+      <xs:enumeration value="Textures\wood5.png"/>
+      <xs:enumeration value="Textures\wood5b.png"/>
+      <xs:enumeration value="Textures\wood6.png"/>
+      <xs:enumeration value="Textures\wood7.png"/>
+      <xs:enumeration value="Textures\zone-summer.png"/>
+      <xs:enumeration value="Textures\zone-winter.png"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="colorType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(0x([0-9a-fA-F]{2})?([0-9a-fA-F]{6})|[0-9]{1,8})"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="materialType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Materials\banner.xml"/>
+      <xs:enumeration value="Materials\concrete.xml"/>
+      <xs:enumeration value="Materials\flag.xml"/>
+      <xs:enumeration value="Materials\grass.xml"/>
+      <xs:enumeration value="Materials\judge.xml"/>
+      <xs:enumeration value="Materials\light.xml"/>
+      <xs:enumeration value="Materials\material1.xml"/>
+      <xs:enumeration value="Materials\metal.xml"/>
+      <xs:enumeration value="Materials\plastic.xml"/>
+      <xs:enumeration value="Materials\rock.xml"/>
+      <xs:enumeration value="Materials\ski-bottom.xml"/>
+      <xs:enumeration value="Materials\ski-logo.xml"/>
+      <xs:enumeration value="Materials\snow.xml"/>
+      <xs:enumeration value="Materials\spectator.xml"/>
+      <xs:enumeration value="Materials\splash-summer.xml"/>
+      <xs:enumeration value="Materials\splash-winter.xml"/>
+      <xs:enumeration value="Materials\tree.xml"/>
+      <xs:enumeration value="Materials\windmeter.xml"/>
+      <xs:enumeration value="Materials\window.xml"/>
+      <xs:enumeration value="Materials\wood.xml"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="refdType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="f"/>
+      <xs:enumeration value="hs"/>
+      <xs:enumeration value="k"/>
+      <xs:enumeration value="p"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="lineType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="summer"/>
+      <xs:enumeration value="winter"/>
+      <xs:enumeration value="twigs"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="blendType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="normal"/>
+      <xs:enumeration value="blend"/>
+      <xs:enumeration value="glass"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="sideType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="left"/>
+      <xs:enumeration value="right"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="markingsSideType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="both"/>
+      <xs:enumeration value="left"/>
+      <xs:enumeration value="right"/>
+      <xs:enumeration value="custom"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stepperType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="2"/>
+      <xs:enumeration value="3"/>
+      <xs:enumeration value="4"/>
+      <xs:enumeration value="5"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="profile-start">
+    <xs:attribute name="x" type="xs:float" use="required"/>
+    <xs:attribute name="y" type="xs:float" use="required"/>
+    <xs:attribute name="refx" type="xs:NCName"/>
+    <xs:attribute name="refy" type="xs:NCName"/>
+  </xs:complexType>
+  <xs:complexType name="profile-nested">
+    <xs:attribute name="id" type="xs:string"/>
+    <xs:attribute name="x" type="xs:float"/>
+    <xs:attribute name="y" type="xs:float"/>
+    <xs:attribute name="n" type="xs:float"/>
+    <xs:attribute name="dx" type="xs:float"/>
+    <xs:attribute name="refx" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="ref-profile">
+    <xs:sequence>
+      <xs:element name="start" minOccurs="1" maxOccurs="unbounded" type="profile-start"/>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="arc"/>
+        <xs:element ref="line"/>
+        <xs:element ref="polynom3"/>
+        <xs:element name="profile" type="profile-nested"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="maxstep" type="xs:float"/>
+    <xs:attribute name="maxturn" type="xs:float"/>
+    <xs:attribute name="refx" type="xs:string"/>
+    <xs:attribute name="side" type="sideType"/>
+  </xs:complexType>
+  <xs:element name="hill">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="inrun" minOccurs="1"/>
+        <xs:element ref="dhill" minOccurs="1"/>
+        <xs:element ref="location" minOccurs="1"/>
+        <xs:element ref="terrain" minOccurs="1"/>
+        <xs:element ref="weather" minOccurs="1"/>
+        <xs:element ref="time" minOccurs="0" />
+        <xs:element ref="lights" minOccurs="0"/>
+        <xs:element name="profile" type="profile" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="beam" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="beamgroup" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="model" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="model-instance" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="pillar" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="railing" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="refx" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="stairs" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="transformation" type="transformation" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="camera" type="camera" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:choice>
+      <xs:attribute name="author"/>
+      <xs:attribute name="version" use="required">
+        <xs:simpleType>
+           <xs:restriction base="xs:NMTOKEN">
+             <xs:enumeration value="DSJ4-1.10.0"/>
+           </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="beam">
+    <xs:complexType>
+      <xs:attribute name="x" type="xs:float"/>
+      <xs:attribute name="x1" type="xs:float"/>
+      <xs:attribute name="x2" type="xs:float"/>
+      <xs:attribute name="y" type="xs:float"/>
+      <xs:attribute name="y1" type="xs:float"/>
+      <xs:attribute name="y2" type="xs:float"/>
+      <xs:attribute name="z" type="xs:float"/>
+      <xs:attribute name="z1" type="xs:float"/>
+      <xs:attribute name="z2" type="xs:float"/>
+      <xs:attribute name="refx" type="xs:NCName"/>
+      <xs:attribute name="refx1" type="xs:NCName"/>
+      <xs:attribute name="refx2" type="xs:NCName"/>
+      <xs:attribute name="refy" type="xs:NCName"/>
+      <xs:attribute name="refy1" type="xs:NCName"/>
+      <xs:attribute name="refy2" type="xs:NCName"/>
+      <xs:attribute name="refz" type="xs:NCName"/>
+      <xs:attribute name="refz1" type="xs:NCName"/>
+      <xs:attribute name="refz2" type="xs:NCName"/>
+      <xs:attribute name="ny" type="xs:float"/>
+      <xs:attribute name="ny1" type="xs:float"/>
+      <xs:attribute name="ny2" type="xs:float"/>
+      <xs:attribute name="nz" type="xs:float"/>
+      <xs:attribute name="nz1" type="xs:float"/>
+      <xs:attribute name="nz2" type="xs:float"/>
+      <xs:attribute name="n_x" type="xs:float"/>
+      <xs:attribute name="n_y" type="xs:float"/>
+      <xs:attribute name="n_z" type="xs:float"/>
+      <xs:attribute name="r" type="xs:float"/>
+      <xs:attribute name="r1" type="xs:float"/>
+      <xs:attribute name="r2" type="xs:float"/>
+      <xs:attribute name="rb" type="xs:float"/>
+      <xs:attribute name="rb1" type="xs:float"/>
+      <xs:attribute name="rb2" type="xs:float"/>
+      <xs:attribute name="edges" use="required" type="xs:integer"/>
+      <xs:attribute name="smooth" type="xs:boolean"/>
+      <xs:attribute name="rect" type="xs:boolean"/>
+      <xs:attribute name="side" type="xs:boolean"/>
+      <xs:attribute name="end1" type="xs:boolean"/>
+      <xs:attribute name="end2" type="xs:boolean"/>
+      <xs:attribute name="invert" type="xs:boolean"/>
+      <xs:attribute name="t" use="required" type="textureType"/>
+      <xs:attribute name="m" use="required" type="materialType"/>
+      <xs:attribute name="c" use="required" type="colorType"/>
+      <xs:attribute name="zbias" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="beamgroup">
+    <xs:complexType>
+      <xs:attribute name="x" type="xs:float"/>
+      <xs:attribute name="x1" type="xs:float"/>
+      <xs:attribute name="x2" type="xs:float"/>
+      <xs:attribute name="y" type="xs:float"/>
+      <xs:attribute name="y1" type="xs:float"/>
+      <xs:attribute name="y2" type="xs:float"/>
+      <xs:attribute name="z" type="xs:float"/>
+      <xs:attribute name="z1" type="xs:float"/>
+      <xs:attribute name="z2" type="xs:float"/>
+      <xs:attribute name="dx" type="xs:float"/>
+      <xs:attribute name="dx1" type="xs:float"/>
+      <xs:attribute name="dx2" type="xs:float"/>
+      <xs:attribute name="dy" type="xs:float"/>
+      <xs:attribute name="dy1" type="xs:float"/>
+      <xs:attribute name="dy2" type="xs:float"/>
+      <xs:attribute name="dz" type="xs:float"/>
+      <xs:attribute name="dz1" type="xs:float"/>
+      <xs:attribute name="dz2" type="xs:float"/>
+      <xs:attribute name="refx" type="xs:NCName"/>
+      <xs:attribute name="refx1" type="xs:NCName"/>
+      <xs:attribute name="refx2" type="xs:NCName"/>
+      <xs:attribute name="refy" type="xs:NCName"/>
+      <xs:attribute name="refy1" type="xs:NCName"/>
+      <xs:attribute name="refy2" type="xs:NCName"/>
+      <xs:attribute name="refz" type="xs:NCName"/>
+      <xs:attribute name="refz1" type="xs:NCName"/>
+      <xs:attribute name="refz2" type="xs:NCName"/>
+      <xs:attribute name="ny" type="xs:float"/>
+      <xs:attribute name="ny1" type="xs:float"/>
+      <xs:attribute name="ny2" type="xs:float"/>
+      <xs:attribute name="nz" type="xs:float"/>
+      <xs:attribute name="nz1" type="xs:float"/>
+      <xs:attribute name="nz2" type="xs:float"/>
+      <xs:attribute name="n_x" type="xs:float"/>
+      <xs:attribute name="n_y" type="xs:float"/>
+      <xs:attribute name="n_z" type="xs:float"/>
+      <xs:attribute name="r" type="xs:float"/>
+      <xs:attribute name="r1" type="xs:float"/>
+      <xs:attribute name="r2" type="xs:float"/>
+      <xs:attribute name="rb" type="xs:float"/>
+      <xs:attribute name="rb1" type="xs:float"/>
+      <xs:attribute name="rb2" type="xs:float"/>
+      <xs:attribute name="edges" use="required" type="xs:integer"/>
+      <xs:attribute name="smooth" type="xs:boolean"/>
+      <xs:attribute name="rect" type="xs:boolean"/>
+      <xs:attribute name="side" type="sideType"/>
+      <xs:attribute name="end1" type="xs:boolean"/>
+      <xs:attribute name="end2" type="xs:boolean"/>
+      <xs:attribute name="invert" type="xs:boolean"/>
+      <xs:attribute name="step" type="xs:float"/>
+      <xs:attribute name="fitstep" type="xs:boolean"/>
+      <xs:attribute name="stepper" type="stepperType"/>
+      <xs:attribute name="first" type="xs:boolean"/>
+      <xs:attribute name="last" type="xs:boolean"/>
+      <xs:attribute name="t" use="required" type="textureType"/>
+      <xs:attribute name="m" use="required" type="materialType"/>
+      <xs:attribute name="c" use="required" type="colorType"/>
+      <xs:attribute name="zbias" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dhill">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="profile" type="dhill-profile" minOccurs="1"/>
+        <xs:element maxOccurs="unbounded" minOccurs="1" ref="fence"/>
+        <xs:element minOccurs="1" ref="judgetower"/>
+        <xs:element minOccurs="1" name="lights" type="dhill-lights"/>
+        <xs:element minOccurs="1" ref="label"/>
+        <xs:element minOccurs="1" ref="lines"/>
+        <xs:element minOccurs="1" ref="measurers"/>
+        <xs:element minOccurs="1" ref="numbers"/>
+        <xs:element minOccurs="1" ref="plastic"/>
+        <xs:element minOccurs="1" ref="windflags"/>
+        <xs:element minOccurs="1" name="custom-markings" type="custom-markings"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fence">
+    <xs:complexType>
+      <xs:attribute name="c" use="required" type="colorType"/>
+      <xs:attribute name="h" type="xs:float"/>
+      <xs:attribute name="m" use="required" type="materialType"/>
+      <xs:attribute name="t" use="required" type="textureType"/>
+      <xs:attribute name="d0" type="xs:float"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="judgetower">
+    <xs:complexType>
+      <xs:attribute name="t1" use="required" type="textureType"/>
+      <xs:attribute name="t2" use="required" type="textureType"/>
+      <xs:attribute name="c1" use="required" type="colorType"/>
+      <xs:attribute name="c2" use="required" type="colorType"/>
+      <xs:attribute name="m1" use="required" type="materialType"/>
+      <xs:attribute name="m2" use="required" type="materialType"/>
+      <xs:attribute name="d" use="required" type="xs:float"/>
+      <xs:attribute name="h" use="required" type="xs:float"/>
+      <xs:attribute name="q" use="required" type="xs:float"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="label">
+    <xs:complexType>
+      <xs:attribute name="d" type="xs:integer"/>
+      <xs:attribute name="summer-d" type="xs:integer"/>
+      <xs:attribute name="text" use="required"/>
+      <xs:attribute name="textsize" use="required" type="xs:float"/>
+      <xs:attribute name="winter-d" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lines">
+    <xs:complexType>
+      <xs:attribute name="summer-max" use="required" type="xs:integer"/>
+      <xs:attribute name="summer-min" use="required" type="xs:integer"/>
+      <xs:attribute name="winter-max" use="required" type="xs:integer"/>
+      <xs:attribute name="winter-min" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="measurers">
+    <xs:complexType>
+      <xs:attribute name="c1" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="c2" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="numbers">
+    <xs:complexType>
+      <xs:attribute name="h1" type="xs:float"/>
+      <xs:attribute name="h2" type="xs:float"/>
+      <xs:attribute name="max" use="required" type="xs:integer"/>
+      <xs:attribute name="min" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="plastic">
+    <xs:complexType>
+      <xs:attribute name="c" use="required" type="colorType"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="windflags">
+    <xs:complexType>
+      <xs:attribute name="c" use="required" type="colorType"/>
+      <xs:attribute name="count" type="xs:integer"/>
+      <xs:attribute name="d" type="xs:float"/>
+      <xs:attribute name="h" type="xs:float"/>
+      <xs:attribute name="l" type="xs:float"/>
+      <xs:attribute name="m" use="required"/>
+      <xs:attribute name="t" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="inrun">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="profile" type="inrun-profile"/>
+        <xs:element ref="flag"/>
+        <xs:element ref="frame"/>
+        <xs:element ref="gatenumbers"/>
+        <xs:element ref="guardrail"/>
+        <xs:element ref="startbanner"/>
+        <xs:element ref="startgate"/>
+        <xs:element ref="track"/>
+        <xs:element ref="twigs"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="flag">
+    <xs:complexType>
+      <xs:attribute name="cp" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="hf" use="required" type="xs:float"/>
+      <xs:attribute name="hp" use="required" type="xs:float"/>
+      <xs:attribute name="mf" use="required"/>
+      <xs:attribute name="mp" use="required"/>
+      <xs:attribute name="pf" use="required" type="xs:float"/>
+      <xs:attribute name="rb" use="required" type="xs:float"/>
+      <xs:attribute name="rt" use="required" type="xs:float"/>
+      <xs:attribute name="tf" use="required"/>
+      <xs:attribute name="tp" use="required"/>
+      <xs:attribute name="x" use="required" type="xs:float"/>
+      <xs:attribute name="z" use="required" type="xs:float"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="frame">
+    <xs:complexType>
+      <xs:attribute name="bdlz" type="xs:float"/>
+      <xs:attribute name="bdrz" type="xs:float"/>
+      <xs:attribute name="bh" type="xs:float"/>
+      <xs:attribute name="by" type="xs:float"/>
+      <xs:attribute name="c" use="required" type="colorType"/>
+      <xs:attribute name="c0" type="xs:NMTOKEN"/>
+      <xs:attribute name="c1" type="xs:NMTOKEN"/>
+      <xs:attribute name="c2" type="xs:NMTOKEN"/>
+      <xs:attribute name="c3" type="xs:NMTOKEN"/>
+      <xs:attribute name="h" type="xs:float"/>
+      <xs:attribute name="l" type="xs:integer"/>
+      <xs:attribute name="left" type="xs:boolean"/>
+      <xs:attribute name="m" use="required"/>
+      <xs:attribute name="m0"/>
+      <xs:attribute name="m1"/>
+      <xs:attribute name="pt" type="xs:boolean"/>
+      <xs:attribute name="right" type="xs:boolean"/>
+      <xs:attribute name="snow" type="xs:boolean"/>
+      <xs:attribute name="snowtrack" type="xs:boolean"/>
+      <xs:attribute name="t" use="required"/>
+      <xs:attribute name="t0"/>
+      <xs:attribute name="t1"/>
+      <xs:attribute name="topsnow" type="xs:boolean"/>
+      <xs:attribute name="zbias" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gatenumbers">
+    <xs:complexType>
+      <xs:attribute name="c1" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="c2" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="max" type="xs:integer"/>
+      <xs:attribute name="min" type="xs:integer"/>
+      <xs:attribute name="size" use="required" type="xs:float"/>
+      <xs:attribute name="x" type="xs:float"/>
+      <xs:attribute name="y" use="required" type="xs:float"/>
+      <xs:attribute name="z" use="required" type="xs:float"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="guardrail">
+    <xs:complexType>
+      <xs:attribute name="l" type="xs:integer"/>
+      <xs:attribute name="x" use="required" type="xs:float"/>
+      <xs:attribute name="z1" use="required" type="xs:float"/>
+      <xs:attribute name="z2" use="required" type="xs:float"/>
+      <xs:attribute name="zbias" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="startbanner">
+    <xs:complexType>
+      <xs:attribute name="c" type="colorType"/>
+      <xs:attribute name="t"/>
+      <xs:attribute name="text" use="required"/>
+      <xs:attribute name="textsize" use="required" type="xs:float"/>
+      <xs:attribute name="z" use="required" type="xs:float"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="startgate">
+    <xs:complexType>
+      <xs:attribute name="c1" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="c2" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="c3" type="xs:NMTOKEN"/>
+      <xs:attribute name="default" use="required" type="xs:integer"/>
+      <xs:attribute name="m1" use="required"/>
+      <xs:attribute name="m2" use="required"/>
+      <xs:attribute name="m3"/>
+      <xs:attribute name="max" use="required" type="xs:integer"/>
+      <xs:attribute name="min" type="xs:integer"/>
+      <xs:attribute name="pdy" type="xs:float"/>
+      <xs:attribute name="pz1" use="required" type="xs:float"/>
+      <xs:attribute name="pz2" use="required" type="xs:float"/>
+      <xs:attribute name="step" use="required" type="xs:float"/>
+      <xs:attribute name="t1" use="required"/>
+      <xs:attribute name="t2" use="required"/>
+      <xs:attribute name="t3"/>
+      <xs:attribute name="wind" use="required" type="xs:float"/>
+      <xs:attribute name="z1" use="required" type="xs:float"/>
+      <xs:attribute name="z2" use="required" type="xs:float"/>
+      <xs:attribute name="zbias" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="track">
+    <xs:complexType>
+      <xs:attribute name="c" type="colorType"/>
+      <xs:attribute name="snow" use="required" type="xs:boolean"/>
+      <xs:attribute name="type" use="required" type="xs:NCName"/>
+      <xs:attribute name="zbias" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="twigs">
+    <xs:complexType>
+      <xs:attribute name="lz" use="required" type="xs:float"/>
+      <xs:attribute name="rz" use="required" type="xs:float"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="location">
+    <xs:complexType>
+      <xs:attribute name="altitude" use="required" type="xs:float"/>
+      <xs:attribute name="latitude" use="required" type="xs:float"/>
+      <xs:attribute name="longitude" use="required" type="xs:float"/>
+      <xs:attribute name="orientation" use="required" type="xs:integer"/>
+      <xs:attribute name="timezone" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="model">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element maxOccurs="unbounded" ref="batch"/>
+        <xs:element maxOccurs="unbounded" ref="seam"/>
+      </xs:choice>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="batch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="vertex"/>
+        <xs:element maxOccurs="unbounded" ref="face"/>
+      </xs:sequence>
+      <xs:attribute name="alphatest" type="xs:integer"/>
+      <xs:attribute name="fvf" use="required" type="xs:integer"/>
+      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="material" use="required"/>
+      <xs:attribute name="order" use="required" type="xs:integer"/>
+      <xs:attribute name="staticligthing" type="xs:boolean"/>
+      <xs:attribute name="texture1" use="required"/>
+      <xs:attribute name="zbias" type="xs:integer"/>
+      <xs:attribute name="blending" type="xs:boolean"/>
+      <xs:attribute name="culling" type="xs:boolean"/>
+      <xs:attribute name="blendmode" type="xs:integer"/>
+      <xs:attribute name="zwrite" type="xs:boolean"/>
+      <xs:attribute name="mipmaplodbias" type="xs:decimal"/>
+      <xs:attribute name="refx" type="xs:decimal"/>
+      <xs:attribute name="refy" type="xs:decimal"/>
+      <xs:attribute name="refz" type="xs:decimal"/>
+      <xs:attribute name="b1" type="xs:string"/>
+      <xs:attribute name="b2" type="xs:string"/>
+      <xs:attribute name="b3" type="xs:string"/>
+      <xs:attribute name="b4" type="xs:string"/>
+      <xs:attribute name="refbone" type="xs:string"/>
+      <xs:attribute name="type" type="blendType"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vertex">
+    <xs:complexType>
+      <xs:attribute name="diffuse" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="id" use="required" type="xs:integer"/>
+      <xs:attribute name="u1" type="xs:float"/>
+      <xs:attribute name="v1" type="xs:float"/>
+      <xs:attribute name="x" use="required" type="xs:float"/>
+      <xs:attribute name="y" use="required" type="xs:float"/>
+      <xs:attribute name="z" use="required" type="xs:float"/>
+      <xs:attribute name="nx" type="xs:float"/>
+      <xs:attribute name="ny" type="xs:float"/>
+      <xs:attribute name="nz" type="xs:float"/>
+      <xs:attribute name="psize" type="xs:float"/>
+      <xs:attribute name="b1" type="xs:string"/>
+      <xs:attribute name="b2" type="xs:string"/>
+      <xs:attribute name="b3" type="xs:string"/>
+      <xs:attribute name="b4" type="xs:string"/>
+      <xs:attribute name="w1" type="xs:decimal"/>
+      <xs:attribute name="w2" type="xs:decimal"/>
+      <xs:attribute name="w3" type="xs:decimal"/>
+      <xs:attribute name="rhw" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="face">
+    <xs:complexType>
+      <xs:attribute name="v1" use="required"/>
+      <xs:attribute name="v2" use="required"/>
+      <xs:attribute name="v3" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="model-instance">
+    <xs:complexType>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attribute name="refx" type="xs:NCName"/>
+      <xs:attribute name="refy" type="xs:NCName"/>
+      <xs:attribute name="refz" type="xs:NCName"/>
+      <xs:attribute name="x" type="xs:float"/>
+      <xs:attribute name="y" type="xs:float"/>
+      <xs:attribute name="z" type="xs:float"/>
+      <xs:attribute name="zbias" type="xs:integer"/>
+      <xs:attribute name="transformation" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="seam">
+    <xs:complexType>
+      <xs:attribute name="b1" type="xs:string"/>
+      <xs:attribute name="v1" type="xs:string"/>
+      <xs:attribute name="b2" type="xs:string"/>
+      <xs:attribute name="v2" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="pillar">
+    <xs:complexType>
+      <xs:attribute name="front" type="xs:boolean"/>
+      <xs:attribute name="rear" type="xs:boolean"/>
+      <xs:attribute name="bottom" type="xs:boolean"/>
+      <xs:attribute name="top" type="xs:boolean"/>
+      <xs:attribute name="left" type="xs:boolean"/>
+      <xs:attribute name="right" type="xs:boolean"/>
+      <xs:attribute name="refx" type="xs:NCName"/>
+      <xs:attribute name="refx1" type="xs:NCName"/>
+      <xs:attribute name="refx2" type="xs:NCName"/>
+      <xs:attribute name="reflz" type="xs:NCName"/>
+      <xs:attribute name="refrz" type="xs:NCName"/>
+      <xs:attribute name="x1" use="required" type="xs:float"/>
+      <xs:attribute name="x2" use="required" type="xs:float"/>
+      <xs:attribute name="t" use="required" type="textureType"/>
+      <xs:attribute name="c" use="required" type="colorType"/>
+      <xs:attribute name="m" use="required" type="materialType"/>
+      <xs:attribute name="bly" type="xs:float"/>
+      <xs:attribute name="bly1" type="xs:float"/>
+      <xs:attribute name="bly2" type="xs:float"/>
+      <xs:attribute name="blz" type="xs:float"/>
+      <xs:attribute name="blz1" type="xs:integer"/>
+      <xs:attribute name="blz2" type="xs:float"/>
+      <xs:attribute name="brefy" type="xs:NCName"/>
+      <xs:attribute name="brefy2" type="xs:NCName"/>
+      <xs:attribute name="brefz" type="xs:NCName"/>
+      <xs:attribute name="bry" type="xs:float"/>
+      <xs:attribute name="bry1" type="xs:float"/>
+      <xs:attribute name="bry2" type="xs:float"/>
+      <xs:attribute name="brz" type="xs:float"/>
+      <xs:attribute name="brz1" type="xs:integer"/>
+      <xs:attribute name="brz2" type="xs:float"/>
+      <xs:attribute name="by" type="xs:float"/>
+      <xs:attribute name="by1" type="xs:float"/>
+      <xs:attribute name="by2" type="xs:float"/>
+      <xs:attribute name="count" type="xs:float"/>
+      <xs:attribute name="guard" type="xs:NCName"/>
+      <xs:attribute name="lz" type="xs:float"/>
+      <xs:attribute name="lz1" type="xs:float"/>
+      <xs:attribute name="lz2" type="xs:float"/>
+      <xs:attribute name="nbottom" type="xs:float"/>
+      <xs:attribute name="ntop" type="xs:float"/>
+      <xs:attribute name="pt" type="xs:boolean"/>
+      <xs:attribute name="refy" type="xs:NCName"/>
+      <xs:attribute name="refz" type="xs:NCName"/>
+      <xs:attribute name="refz1" type="xs:NCName"/>
+      <xs:attribute name="refz2" type="xs:NCName"/>
+      <xs:attribute name="rz" type="xs:float"/>
+      <xs:attribute name="rz1" type="xs:float"/>
+      <xs:attribute name="rz2" type="xs:float"/>
+      <xs:attribute name="scale" type="xs:float"/>
+      <xs:attribute name="step" type="xs:float"/>
+      <xs:attribute name="stepper" type="xs:integer"/>
+      <xs:attribute name="ta" type="xs:boolean"/>
+      <xs:attribute name="ta1" type="xs:integer"/>
+      <xs:attribute name="ta2" type="xs:integer"/>
+      <xs:attribute name="texture-refy" type="xs:NCName"/>
+      <xs:attribute name="tly" type="xs:float"/>
+      <xs:attribute name="tly1" type="xs:float"/>
+      <xs:attribute name="tly2" type="xs:float"/>
+      <xs:attribute name="tlz" type="xs:float"/>
+      <xs:attribute name="trefx" type="xs:NCName"/>
+      <xs:attribute name="trefy" type="xs:NCName"/>
+      <xs:attribute name="trefy2" type="xs:NCName"/>
+      <xs:attribute name="trefz" type="xs:NCName"/>
+      <xs:attribute name="true" type="xs:boolean"/>
+      <xs:attribute name="try" type="xs:float"/>
+      <xs:attribute name="try1" type="xs:float"/>
+      <xs:attribute name="try2" type="xs:float"/>
+      <xs:attribute name="trz" type="xs:float"/>
+      <xs:attribute name="ty" type="xs:float"/>
+      <xs:attribute name="ty1" type="xs:float"/>
+      <xs:attribute name="ty2" type="xs:float"/>
+      <xs:attribute name="type" type="xs:NCName"/>
+      <xs:attribute name="w" type="xs:float"/>
+      <xs:attribute name="y" type="xs:integer"/>
+      <xs:attribute name="z" type="xs:float"/>
+      <xs:attribute name="zbias" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="railing">
+    <xs:complexType>
+      <xs:attribute name="y1" type="xs:float"/>
+      <xs:attribute name="y2" type="xs:float"/>
+      <xs:attribute name="z1" type="xs:float"/>
+      <xs:attribute name="z2" type="xs:float"/>
+      <xs:attribute name="d" type="xs:float"/>
+      <xs:attribute name="refx" type="xs:NCName"/>
+      <xs:attribute name="refx1" type="xs:NCName"/>
+      <xs:attribute name="refx2" type="xs:NCName"/>
+      <xs:attribute name="refy" type="xs:NCName"/>
+      <xs:attribute name="refz" type="xs:NCName"/>
+      <xs:attribute name="brefy" type="xs:NCName"/>
+      <xs:attribute name="trefy" type="xs:NCName"/>
+      <xs:attribute name="x1" type="xs:float"/>
+      <xs:attribute name="x2" type="xs:float"/>
+      <xs:attribute name="w" type="xs:float"/>
+      <xs:attribute name="h" type="xs:float"/>
+      <xs:attribute name="h2" type="xs:float"/>
+      <xs:attribute name="n1" type="xs:float"/>
+      <xs:attribute name="n2" type="xs:float"/>
+      <xs:attribute name="guard" type="xs:boolean"/>
+      <xs:attribute name="front" type="xs:boolean"/>
+      <xs:attribute name="rear" type="xs:boolean"/>
+      <xs:attribute name="bottom" type="xs:boolean"/>
+      <xs:attribute name="top" type="xs:boolean"/>
+      <xs:attribute name="left" type="xs:boolean"/>
+      <xs:attribute name="right" type="xs:boolean"/>
+      <xs:attribute name="t" type="textureType" use="required"/>
+      <xs:attribute name="t1" type="textureType"/>
+      <xs:attribute name="t2" type="textureType"/>
+      <xs:attribute name="t3" type="textureType"/>
+      <xs:attribute name="t4" type="textureType"/>
+      <xs:attribute name="t5" type="textureType"/>
+      <xs:attribute name="t6" type="textureType"/>
+      <xs:attribute name="m" type="materialType" use="required"/>
+      <xs:attribute name="m1" type="materialType"/>
+      <xs:attribute name="m2" type="materialType"/>
+      <xs:attribute name="m3" type="materialType"/>
+      <xs:attribute name="m4" type="materialType"/>
+      <xs:attribute name="m5" type="materialType"/>
+      <xs:attribute name="m6" type="materialType"/>
+      <xs:attribute name="c" type="colorType" use="required"/>
+      <xs:attribute name="c1" type="colorType"/>
+      <xs:attribute name="c2" type="colorType"/>
+      <xs:attribute name="c3" type="colorType"/>
+      <xs:attribute name="c4" type="colorType"/>
+      <xs:attribute name="c5" type="colorType"/>
+      <xs:attribute name="c6" type="colorType"/>
+      <xs:attribute name="pt" type="xs:boolean"/>
+      <xs:attribute name="pt1" type="xs:boolean"/>
+      <xs:attribute name="pt2" type="xs:boolean"/>
+      <xs:attribute name="pt3" type="xs:boolean"/>
+      <xs:attribute name="pt4" type="xs:boolean"/>
+      <xs:attribute name="pt5" type="xs:boolean"/>
+      <xs:attribute name="pt6" type="xs:boolean"/>
+      <xs:attribute name="scale" type="xs:float"/>
+      <xs:attribute name="scale1" type="xs:float"/>
+      <xs:attribute name="scale2" type="xs:float"/>
+      <xs:attribute name="scale3" type="xs:float"/>
+      <xs:attribute name="scale4" type="xs:float"/>
+      <xs:attribute name="scale5" type="xs:float"/>
+      <xs:attribute name="scale6" type="xs:float"/>
+      <xs:attribute name="ta1" type="xs:float"/>
+      <xs:attribute name="ta2" type="xs:float"/>
+      <xs:attribute name="ta3" type="xs:float"/>
+      <xs:attribute name="ta4" type="xs:float"/>
+      <xs:attribute name="ta5" type="xs:float"/>
+      <xs:attribute name="ta6" type="xs:float"/>
+      <xs:attribute name="texture-refy" type="xs:NCName"/>
+      <xs:attribute name="texture1-refy" type="xs:NCName"/>
+      <xs:attribute name="texture2-refy" type="xs:NCName"/>
+      <xs:attribute name="texture3-refy" type="xs:NCName"/>
+      <xs:attribute name="texture4-refy" type="xs:NCName"/>
+      <xs:attribute name="texture5-refy" type="xs:NCName"/>
+      <xs:attribute name="texture6-refy" type="xs:NCName"/>
+      <xs:attribute name="type" type="blendType"/>
+      <xs:attribute name="zbias" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="refx">
+    <xs:complexType>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attribute name="value" use="required" type="xs:float"/>
+      <xs:attribute name="refx" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="stairs">
+    <xs:complexType>
+      <xs:attribute name="by" type="xs:integer"/>
+      <xs:attribute name="c1" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="c2" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="d" type="xs:float"/>
+      <xs:attribute name="front" type="xs:boolean"/>
+      <xs:attribute name="h" type="xs:integer"/>
+      <xs:attribute name="left" type="xs:boolean"/>
+      <xs:attribute name="lz" type="xs:float"/>
+      <xs:attribute name="lz1" type="xs:float"/>
+      <xs:attribute name="lz2" type="xs:float"/>
+      <xs:attribute name="m1" use="required"/>
+      <xs:attribute name="m2" use="required"/>
+      <xs:attribute name="rear" type="xs:boolean"/>
+      <xs:attribute name="reflz" type="xs:NCName"/>
+      <xs:attribute name="refrz" type="xs:NCName"/>
+      <xs:attribute name="refx" type="xs:NCName"/>
+      <xs:attribute name="refx1" type="xs:NCName"/>
+      <xs:attribute name="refx2" type="xs:NCName"/>
+      <xs:attribute name="refy" type="xs:NCName"/>
+      <xs:attribute name="refy1" type="xs:NCName"/>
+      <xs:attribute name="refy2" type="xs:NCName"/>
+      <xs:attribute name="refz" type="xs:NCName"/>
+      <xs:attribute name="right" type="xs:boolean"/>
+      <xs:attribute name="rz" type="xs:float"/>
+      <xs:attribute name="rz1" type="xs:float"/>
+      <xs:attribute name="rz2" type="xs:float"/>
+      <xs:attribute name="s" type="xs:float"/>
+      <xs:attribute name="scale" type="xs:float"/>
+      <xs:attribute name="t1" use="required"/>
+      <xs:attribute name="t2" use="required"/>
+      <xs:attribute name="top" type="xs:boolean"/>
+      <xs:attribute name="ty" type="xs:float"/>
+      <xs:attribute name="x" type="xs:float"/>
+      <xs:attribute name="x1"/>
+      <xs:attribute name="x2" type="xs:float"/>
+      <xs:attribute name="y" type="xs:float"/>
+      <xs:attribute name="y1" type="xs:float"/>
+      <xs:attribute name="y2" type="xs:float"/>
+      <xs:attribute name="z" type="xs:integer"/>
+      <xs:attribute name="z1" type="xs:float"/>
+      <xs:attribute name="z2" type="xs:float"/>
+      <xs:attribute name="zbias" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="terrain">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="profile" type="terrain-profile"/>
+        <xs:element ref="trees"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="blocks"/>
+          <xs:element ref="houses"/>
+        </xs:choice>
+        <xs:element ref="audience"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    
+    <xs:complexType name="terrain-profile">
+      <xs:attribute name="in" type="xs:float" use="required"/>
+      <xs:attribute name="y0" type="xs:float" use="required"/>
+      <xs:attribute name="rs" type="xs:integer" use="required"/>
+      <xs:attribute name="x0" type="xs:float"/>
+      <xs:attribute name="x1" type="xs:float"/>
+      <xs:attribute name="sd" type="xs:float"/>
+      <xs:attribute name="fd" type="xs:float"/>
+      <xs:attribute name="sc" type="xs:float"/>
+      <xs:attribute name="sm" type="xs:float"/>
+      <xs:attribute name="c1" type="colorType"/>
+      <xs:attribute name="c2" type="colorType"/>
+      <xs:attribute name="tsc" type="xs:float"/>
+      <xs:attribute name="tsm" type="xs:float"/>
+      <xs:attribute name="fillraised" type="xs:boolean"/>
+    </xs:complexType>
+
+  <xs:element name="trees">
+    <xs:complexType>
+      <xs:attribute name="count" use="required" type="xs:integer"/>
+      <xs:attribute name="fractalthreshold" use="required" type="xs:float"/>
+      <xs:attribute name="maxaltitude" use="required" type="xs:integer"/>
+      <xs:attribute name="maxheight" use="required" type="xs:integer"/>
+      <xs:attribute name="minheight" use="required" type="xs:integer"/>
+      <xs:attribute name="normalaltitude" use="required" type="xs:integer"/>
+      <xs:attribute name="seed" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="blocks">
+    <xs:complexType>
+      <xs:attribute name="count" use="required" type="xs:integer"/>
+      <xs:attribute name="fractalthreshold" use="required" type="xs:float"/>
+      <xs:attribute name="maxaltitude" use="required" type="xs:integer"/>
+      <xs:attribute name="maxfloors" use="required" type="xs:integer"/>
+      <xs:attribute name="maxsaturation" use="required" type="xs:float"/>
+      <xs:attribute name="minfloors" use="required" type="xs:integer"/>
+      <xs:attribute name="minsaturation" use="required" type="xs:float"/>
+      <xs:attribute name="normalaltitude" use="required" type="xs:integer"/>
+      <xs:attribute name="seed" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="houses">
+    <xs:complexType>
+      <xs:attribute name="count" use="required" type="xs:integer"/>
+      <xs:attribute name="fractalthreshold" use="required" type="xs:float"/>
+      <xs:attribute name="maxaltitude" use="required" type="xs:integer"/>
+      <xs:attribute name="maxfloors" use="required" type="xs:integer"/>
+      <xs:attribute name="maxsaturation" use="required" type="xs:float"/>
+      <xs:attribute name="minfloors" use="required" type="xs:integer"/>
+      <xs:attribute name="minsaturation" use="required" type="xs:float"/>
+      <xs:attribute name="normalaltitude" use="required" type="xs:integer"/>
+      <xs:attribute name="seed" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="audience">
+    <xs:complexType>
+      <xs:attribute name="count" use="required" type="xs:integer"/>
+      <xs:attribute name="d" use="required" type="xs:float"/>
+      <xs:attribute name="seed" use="required" type="xs:integer"/>
+      <xs:attribute name="x0" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="time">
+    <xs:complexType>
+      <xs:attribute name="maxhour" use="required" type="xs:integer"/>
+      <xs:attribute name="minhour" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="weather">
+    <xs:complexType>
+      <xs:attribute name="firstsnow" use="required" type="xs:integer"/>
+      <xs:attribute name="fogprobability" use="required" type="xs:float"/>
+      <xs:attribute name="lastsnow" use="required" type="xs:integer"/>
+      <xs:attribute name="maxsnow" use="required" type="xs:float"/>
+      <xs:attribute name="pollution" use="required" type="xs:float"/>
+      <xs:attribute name="precipitationprobability" use="required" type="xs:float"/>
+    </xs:complexType>
+  </xs:element>
+  
+    <xs:complexType name="profile">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="start"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="arc"/>
+          <xs:element ref="line"/>
+          <xs:element ref="polynom3"/>
+          <xs:element minOccurs="0" name="profile" type="profile-nested"/>
+        </xs:choice>
+      </xs:sequence>
+
+      <xs:attribute name="maxstep" type="xs:float"/>
+      <xs:attribute name="maxturn" type="xs:float"/>
+      <xs:attribute name="refx" type="xs:NCName"/>
+      <xs:attribute name="side" type="xs:NCName"/>
+      <xs:attribute name="id" type="xs:NCName" use="required"/>
+    </xs:complexType>
+  
+  <xs:element name="start">
+    <xs:complexType>
+      <xs:attribute name="refx" type="xs:NCName"/>
+      <xs:attribute name="refy" type="xs:NCName"/>
+      <xs:attribute name="refyx" type="xs:float"/>
+      <xs:attribute name="x" use="required" type="xs:float"/>
+      <xs:attribute name="y" use="required" type="xs:float"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="arc">
+    <xs:complexType>
+      <xs:attribute name="refx" type="xs:NCName"/>
+      <xs:attribute name="refy" type="xs:NCName"/>
+      <xs:attribute name="refyx" type="xs:float"/>
+      <xs:attribute name="x" use="required" type="xs:float"/>
+      <xs:attribute name="x0" type="xs:float"/>
+      <xs:attribute name="y" use="required" type="xs:float"/>
+      <xs:attribute name="y0" type="xs:float"/>
+      <xs:attribute name="r" type="xs:float"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="line">
+    <xs:complexType>
+      <xs:attribute name="corner" type="xs:boolean"/>
+      <xs:attribute name="refx" type="xs:NCName"/>
+      <xs:attribute name="refy" type="xs:NCName"/>
+      <xs:attribute name="refyx" type="xs:float"/>
+      <xs:attribute name="x" use="required" type="xs:float"/>
+      <xs:attribute name="y" use="required" type="xs:float"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="polynom3">
+    <xs:complexType>
+      <xs:attribute name="k1" type="xs:float"/>
+      <xs:attribute name="k2" use="required" type="xs:float"/>
+      <xs:attribute name="refx" type="xs:NCName"/>
+      <xs:attribute name="refy" type="xs:NCName"/>
+      <xs:attribute name="refyx" type="xs:float"/>
+      <xs:attribute name="x" use="required" type="xs:float"/>
+      <xs:attribute name="y" use="required" type="xs:float"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lights">
+    <xs:complexType>
+      <xs:attribute name="refx1" type="xs:NCName"/>
+      <xs:attribute name="refx2" type="xs:NCName"/>
+      <xs:attribute name="refx" type="xs:NCName"/>
+      <xs:attribute name="refy" type="xs:NCName"/>
+      <xs:attribute name="refz" type="xs:NCName" use="required"/>
+      <xs:attribute name="x1" type="xs:float"/>
+      <xs:attribute name="x2" type="xs:float"/>
+      <xs:attribute name="step" type="positiveDecimals"/>
+      <xs:attribute name="h" type="xs:float"/>
+      <xs:attribute name="n" type="xs:float"/>
+      <xs:attribute name="d" type="xs:float"/>
+      <xs:attribute name="l" type="xs:float" use="required"/>
+      <xs:attribute name="r" type="xs:float" use="required"/>
+      <xs:attribute name="g" type="xs:float" use="required"/>
+      <xs:attribute name="b" type="xs:float" use="required"/>
+      <xs:attribute name="attn" type="xs:float" use="required"/>
+      <xs:attribute name="range" type="xs:float" use="required"/>
+      <xs:attribute name="day" type="xs:boolean"/>
+      <xs:attribute name="zmargin" type="xs:float"/>
+    </xs:complexType>
+  </xs:element>
+    <xs:complexType name="dhill-lights">
+      <xs:attribute name="x0" type="xs:float"/>
+      <xs:attribute name="x1" type="xs:float"/>
+      <xs:attribute name="x2" type="xs:float"/>
+      <xs:attribute name="step" type="positiveDecimals" use="required"/>
+      <xs:attribute name="size" type="positiveDecimals" use="required"/>
+      <xs:attribute name="h" type="xs:float"/>
+      <xs:attribute name="d" type="xs:float"/>
+      <xs:attribute name="r" type="xs:float" use="required"/>
+      <xs:attribute name="g" type="xs:float" use="required"/>
+      <xs:attribute name="b" type="xs:float" use="required"/>
+      <xs:attribute name="attn" type="xs:float" use="required"/>
+      <xs:attribute name="range" type="xs:float" use="required"/>
+      <xs:attribute name="side" type="sideType"/>
+      <xs:attribute name="t" type="textureType" use="required"/>
+      <xs:attribute name="m" type="materialType" use="required"/>
+      <xs:attribute name="c" type="colorType" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="custom-markings">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="winter" type="winter-markings"/>
+        <xs:element name="summer" type="summer-markings"/>
+      </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="winter-markings">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="banner" type="banner"/>
+        <xs:element name="spray" type="spray"/>
+        <xs:element name="twigs" type="twigs"/>
+      </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="summer-markings">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="banner" type="banner"/>
+        <xs:element name="line" type="dist-line"/>
+        <xs:element name="grass" type="grass"/>
+      </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="banner">
+      <xs:attribute name="d1" type="xs:integer" />
+      <xs:attribute name="d2" type="xs:integer"/>
+      <xs:attribute name="side" type="markingsSideType"/>
+      <xs:attribute name="w" type="positiveDecimals"/>
+      <xs:attribute name="margin" type="nonNegativeDecimals"/>
+      <xs:attribute name="c" type="colorType" use="required"/>
+      <xs:attribute name="refd" type="refdType"/>
+      <xs:attribute name="refd1" type="refdType"/>
+      <xs:attribute name="refd2" type="refdType"/>
+      <xs:attribute name="z1" type="xs:float"/>
+      <xs:attribute name="z2" type="xs:float"/>
+    </xs:complexType>
+
+    <xs:complexType name="dist-line">
+      <xs:attribute name="type" type="lineType"/>
+      <xs:attribute name="d" type="xs:positiveInteger"/>
+      <xs:attribute name="d1" type="xs:positiveInteger"/>
+      <xs:attribute name="d2" type="xs:positiveInteger"/>
+      <xs:attribute name="z1" type="xs:float"/>
+      <xs:attribute name="z2" type="xs:float"/>
+      <xs:attribute name="w" type="positiveDecimals" use="required"/>
+      <xs:attribute name="c" type="colorType" use="required"/>
+      <xs:attribute name="step" type="positiveDecimals"/>
+      <xs:attribute name="count" type="xs:positiveInteger"/>
+      <xs:attribute name="refz" type="xs:NCName"/>
+      <xs:attribute name="refz1" type="xs:NCName"/>
+      <xs:attribute name="refz2" type="xs:NCName"/>
+      <xs:attribute name="refd" type="refdType"/>
+      <xs:attribute name="refd1" type="refdType"/>
+      <xs:attribute name="refd2" type="refdType"/>
+    </xs:complexType>
+
+    <xs:complexType name="spray">
+      <xs:attribute name="d" type="xs:positiveInteger"/>
+      <xs:attribute name="fade1" type="xs:float"/>
+      <xs:attribute name="fade2" type="xs:float"/>
+      <xs:attribute name="z1" type="xs:float"/>
+      <xs:attribute name="z2" type="xs:float"/>
+      <xs:attribute name="w" type="positiveDecimals" use="required"/>
+      <xs:attribute name="c" type="colorType" use="required"/>
+      <xs:attribute name="step" type="positiveDecimals"/>
+      <xs:attribute name="count" type="xs:positiveInteger"/>
+      <xs:attribute name="refz1" type="xs:NCName"/>
+      <xs:attribute name="refz2" type="xs:NCName"/>
+      <xs:attribute name="refd" type="refdType"/>
+      <xs:attribute name="refd1" type="refdType"/>
+      <xs:attribute name="refd2" type="refdType"/>
+    </xs:complexType>
+
+    <xs:complexType name="twigs">
+      <xs:attribute name="d" type="xs:positiveInteger"/>
+      <xs:attribute name="space" type="xs:float"/>
+      <xs:attribute name="size" type="positiveDecimals"/>
+      <xs:attribute name="forcedetailed" type="xs:boolean"/>
+      <xs:attribute name="z1" type="xs:float"/>
+      <xs:attribute name="z2" type="xs:float"/>
+      <xs:attribute name="w" type="positiveDecimals"/>
+      <xs:attribute name="c" type="colorType"/>
+      <xs:attribute name="step" type="positiveDecimals"/>
+      <xs:attribute name="count" type="xs:positiveInteger"/>
+      <xs:attribute name="refz1" type="xs:NCName"/>
+      <xs:attribute name="refz2" type="xs:NCName"/>
+      <xs:attribute name="refd" type="refdType"/>
+      <xs:attribute name="refd1" type="refdType"/>
+      <xs:attribute name="refd2" type="refdType"/>
+    </xs:complexType>
+
+    <xs:complexType name="grass">
+      <xs:attribute name="d1" type="xs:positiveInteger"/>
+      <xs:attribute name="d2" type="xs:positiveInteger"/>
+      <xs:attribute name="side" type="markingsSideType"/>
+      <xs:attribute name="refz" type="xs:NCName"/>
+      <xs:attribute name="refz1" type="xs:NCName"/>
+      <xs:attribute name="refz2" type="xs:NCName"/>
+      <xs:attribute name="refd" type="refdType"/>
+      <xs:attribute name="refd1" type="refdType"/>
+      <xs:attribute name="refd2" type="refdType"/>
+      <xs:attribute name="z1" type="xs:float"/>
+      <xs:attribute name="z2" type="xs:float"/>
+    </xs:complexType>
+
+    <xs:complexType name="camera">
+      <xs:attribute name="type" type="cameraType" use="required"/>
+      <xs:attribute name="x" type="xs:float" use="required"/>
+      <xs:attribute name="y" type="xs:float" use="required"/>
+      <xs:attribute name="z" type="xs:float" use="required"/>
+      <xs:attribute name="refx" type="xs:NCName"/>
+      <xs:attribute name="refy" type="xs:NCName"/>
+      <xs:attribute name="refz" type="xs:NCName"/>
+    </xs:complexType>
+
+    <xs:complexType name="transformation">
+      <xs:sequence>
+        <xs:choice>
+          <xs:element ref="matrix"/>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="rotate" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="scale" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="translate" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:choice>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:NCName" use="required"/>
+    </xs:complexType>
+
+    <xs:element name="matrix">
+      <xs:complexType>
+        <xs:attribute name="m11" type="xs:float"/>
+        <xs:attribute name="m21" type="xs:float"/>
+        <xs:attribute name="m22" type="xs:float"/>
+        <xs:attribute name="m33" type="xs:float"/>
+        <xs:attribute name="m44" type="xs:float"/>
+      </xs:complexType>
+    </xs:element>
+
+    <xs:group name="transform-elements">
+          <xs:choice>
+            <xs:element ref="rotate" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="scale" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="translate" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:choice>
+    </xs:group>
+
+    <xs:element name="rotate">
+      <xs:complexType>
+        <xs:attribute name="axis">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="x"/>
+              <xs:enumeration value="y"/>
+              <xs:enumeration value="z"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="angle" type="positiveDecimals"/>
+      </xs:complexType>
+    </xs:element>
+
+    <xs:element name="scale">
+      <xs:complexType>
+        <xs:attribute name="x" type="positiveDecimals"/>
+        <xs:attribute name="y" type="positiveDecimals"/>
+        <xs:attribute name="z" type="positiveDecimals"/>
+      </xs:complexType>
+    </xs:element>
+
+    <xs:element name="translate">
+      <xs:complexType>
+        <xs:attribute name="x" type="positiveDecimals"/>
+        <xs:attribute name="y" type="positiveDecimals"/>
+        <xs:attribute name="z" type="positiveDecimals"/>
+      </xs:complexType>
+    </xs:element>
+
+</xs:schema>
