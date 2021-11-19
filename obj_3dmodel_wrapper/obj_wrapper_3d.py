@@ -121,6 +121,7 @@ def convert_3d(name,v,f,vt,vn,mtl,scale_uv,invert_faces,model_tag,scale,use_norm
     else:
         prefix=""
     command = ('<%smodel id="'+sub('.+/','',name)+'">\n\t') % prefix
+    batches=[]
     for batch in f:
             verts_str=[]
             faces=[]
@@ -131,6 +132,11 @@ def convert_3d(name,v,f,vt,vn,mtl,scale_uv,invert_faces,model_tag,scale,use_norm
             alphatest=extract_alphatest(batch)
             zbias=extract_zbias(batch)
             batch_replace=sub(r'["_\\/\-.]','',batch)
+            it=2
+            while(batch_replace in batches):
+                batch_replace=batch_replace+('_%i' % it)
+                it+=1
+            batches+=[batch_replace]
             command+="<batch id=\""+batch_replace+'" texture1="'+texture+'" '+zbias+' material="'+material+'" fvf="322" '+alphatest+' order="0">\n\t\t'
             kl=0
             allVertsUv=[]
@@ -192,7 +198,7 @@ def convert_3d(name,v,f,vt,vn,mtl,scale_uv,invert_faces,model_tag,scale,use_norm
             faces=[x for _,x in sorted_faces]
             command+=''.join(verts_str)+'\n\n'+''.join(faces)
             command+='\n\t</batch>\n\t'
-    command+=("\n</%smodel>\n\n<%smodel-instance id=\""+name+"\"/>") % tuple([prefix,prefix])
+    command+=("\n</%smodel>\n\n<%smodel-instance id=\""+sub('.+/','',name)+"\"/>") % tuple([prefix,prefix])
     return(command)
 
 def save_to_file(io,path):
