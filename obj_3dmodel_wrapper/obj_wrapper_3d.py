@@ -4,9 +4,17 @@ import numpy as np
 from re import findall,match,search,sub
 import sys
 
+input={}
+
+#adjust default value
+input['model_tag']='model'
+input['inv_faces']=0
+input['scale_uv']=1
+input['scale']=1
+input['use_normals']='n'
 #read input
 
-input={}
+
 keys = ["--model_tag=","--input_obj=","--output_xml=","--inv_faces=","--scale_uv=","--scale=","--use_normals="]
 for i in range(1,len(sys.argv)):                                                                                                  
     for key in keys:                                                                                                                   
@@ -79,16 +87,16 @@ def read_mtl(path="./models/windmill.mtl"):
     return f
 
 def extract_texture(input_str):
-    if(bool(match(r".*Textures\\.+?\.(png|jpg)",input_str))):
-        parsed_texture=match(r".*(Textures\\.+?\.(png|jpg))",input_str).group(1)
-        return(parsed_texture)
+    if(bool(match(r"[A-z0-9-]+\.(png|jpg)",input_str))):
+        parsed_texture=match(r"([A-z0-9-]+\.(png|jpg))",input_str).group(1)
+        return("Textures\\"+parsed_texture)
     else:
         return("Textures\\metal.png")
 
 def extract_material(input_str):
-    if(bool(match(r".*Materials\\.+?\.xml",input_str))):
-        parsed_material=match(r".*?(Materials\\.+?\.xml)",input_str).group(1)
-        return(parsed_material)
+    if(bool(match(r"[A-z0-9-]+\.xml",input_str))):
+        parsed_material=match(r"([A-z0-9-]+\.xml)",input_str).group(1)
+        return("Materials\\"+parsed_material)
     else:
         return("Materials\\material1.xml")
 
@@ -112,7 +120,7 @@ def convert_3d(name,v,f,vt,vn,mtl,scale_uv,invert_faces,model_tag,scale,use_norm
         prefix="3d"
     else:
         prefix=""
-    command = ('<%smodel id="'+name+'">\n\t') % prefix
+    command = ('<%smodel id="'+sub('.+/','',name)+'">\n\t') % prefix
     for batch in f:
             verts_str=[]
             faces=[]
@@ -202,6 +210,9 @@ invert_faces=input['inv_faces']
 model_tag=input['model_tag']
 scale=input['scale']
 use_normals=input['use_normals']
+
+
+
 
 v,f,vt,vn=read_obj(model+'.obj',use_normals)
 mtl=read_mtl(model+'.mtl')
