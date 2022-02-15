@@ -41,14 +41,21 @@ If you create some model from scratch, it's good to check if UV mapping is corre
 
 ## Usage
 
-Script require following arguments:
-* input_obj - name of the obj file(without extension)
-* output_xml- name of the output file(without extension- it's xml)
-* inv_faces- flag which defines if faces should be inverted. If you have model with wrong topology and in DSJ model is fliped(like pillar with lz-rz flipped) then setting this flag to 1 should help
-* scale_uv- scale factor for UV mapping. If you have UV mapping well defined in blender, then it should be 1. For value bigger than 1 texture mapped is bigger, for values smaller than 1 texture is smaller.
-* model_tag- tag for output xml `<3dmodel`. If your hill is in 1.8.0 version, then you should set this value to `model`
-* scale - overvall scale of the model. Everything is scaled with reference to model origin point.
-* use_normals - (y/n) - if 'y'- script uses normals specified in obj which are assigned to every vertex.
+Required arguments
+| Attribute | Type   | Description                                               |
+| --------- | ------  | --------------------------------------------------------- |
+| <style>input_obj | String   | Input file path (without .obj .mtl extension)                                   |
+| output_xml| String   | Output file path           |
+
+Optional arguments:
+| Attribute | Type | Default value  | Description                                               |
+| --------- | ------  | --------- |--------------------------------------------------------- |
+| inv_faces | Bool  | 0           | Flag whether to invert model faces           |
+| scale_uv  | Float  | 1.0           | Scale for UV coordinates        |
+| scale     | Float |     1         | Scale for the model vertices |
+| model_tag | String |     model     | Model tag. From DSJ 1.8.0 it is `model` not `3dmodel` |
+| use_normals| String |   n           | If 'y' - script uses normals defined in obj which are assigned to every vertex |
+
 
 Example usage: navigate to this folder and launch command below:
 ```{bash}
@@ -58,6 +65,8 @@ python obj_wrapper_3d.py\
 --inv_faces=0 \
 --scale_uv=1 \
 --model_tag=3dmodel
+--scale=1
+--use_normals=n
 ```
 
 After executing that command, cube.xml file should appear. Copy the content of this file into your hill xml and it should result with this.
