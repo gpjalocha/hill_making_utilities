@@ -1,7 +1,7 @@
 #!/bin/python
 
 import numpy as np
-from re import findall,match,search,sub
+from re import findall,match,search,sub,compile
 import sys
 
 input={}
@@ -87,29 +87,35 @@ def read_mtl(path="./models/windmill.mtl"):
     return f
 
 def extract_texture(input_str):
-    if(bool(match(r"[A-z0-9-]+\.(png|jpg)",input_str))):
-        parsed_texture=match(r"([A-z0-9-]+\.(png|jpg))",input_str).group(1)
+    if(bool(match(r".+[a-z0-9-]+\.(png|jpg)",input_str))):
+        parsed_texture=compile("([a-z0-9-]+\.(png|jpg))").search(input_str).group(0)
         return("Textures\\"+parsed_texture)
     else:
         return("Textures\\metal.png")
 
 def extract_material(input_str):
-    if(bool(match(r"[A-z0-9-]+\.xml",input_str))):
-        parsed_material=match(r"([A-z0-9-]+\.xml)",input_str).group(1)
+    if(bool(match(r".*?[a-z0-9-]+\.xml",input_str))):
+        parsed_material=compile("([a-z0-9-]+\.xml)").search(input_str).group(0)
         return("Materials\\"+parsed_material)
     else:
         return("Materials\\material1.xml")
 
 def extract_alphatest(input_str):
     if(bool(match(r".*alphatest=",input_str))):
-        parsed_alpha=match(r'.*?alphatest=([0-9]+?)',input_str).group(1)
+        parsed_alpha=match(r'.*?alphatest="?([0-9]+?)"?',input_str).group(1)
         return('alphatest="'+parsed_alpha+'"')
     else:
         return("")
 def extract_zbias(input_str):
     if(bool(match(r".*zbias=",input_str))):
-        parsed_zbias=match(r'.*?zbias=([0-9]+?)',input_str).group(1)
+        parsed_zbias=match(r'.*?zbias="?([0-9.]+)"?',input_str).group(1)
         return('zbias="'+parsed_zbias+'"')
+    else:
+        return("")
+def extract_type(input_str):
+    if(bool(match(r".*type=",input_str))):
+        parsed_zbias=match(r'.*?type="?(blend|glass)"?',input_str).group(1)
+        return('type="'+parsed_zbias+'"')
     else:
         return("")
 
@@ -131,13 +137,14 @@ def convert_3d(name,v,f,vt,vn,mtl,scale_uv,invert_faces,model_tag,scale,use_norm
             texture=extract_texture(batch)
             alphatest=extract_alphatest(batch)
             zbias=extract_zbias(batch)
+            type=extract_type(batch)
             batch_replace=sub(r'["_\\/\-.]','',batch)
             it=2
             while(batch_replace in batches):
                 batch_replace=batch_replace+('_%i' % it)
                 it+=1
             batches+=[batch_replace]
-            command+="<batch id=\""+batch_replace+'" texture1="'+texture+'" '+zbias+' material="'+material+'" fvf="322" '+alphatest+' order="0">\n\t\t'
+            command+="<batch id=\""+batch_replace+'" texture1="'+texture+'" '+zbias+' material="'+material+'" fvf="322" '+alphatest+' order="0" '+type+'>\n\t\t'
             kl=0
             allVertsUv=[]
             print("processing texture batch name: %s\nmaterial: %s\ntexture: %s\ncolor=%s\n%s\n" %tuple([batch,material,texture,color,zbias]))
