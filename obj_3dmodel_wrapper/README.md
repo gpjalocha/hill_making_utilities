@@ -44,7 +44,7 @@ If you create some model from scratch, it's good to check if UV mapping is corre
 Required arguments
 | Attribute | Type   | Description                                               |
 | --------- | ------  | --------------------------------------------------------- |
-| <style>input_obj | String   | Input file path (without .obj .mtl extension)                                   |
+| input_obj | String   | Input file path (without .obj .mtl extension)                                   |
 | output_xml| String   | Output file path           |
 
 Optional arguments:
